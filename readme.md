@@ -147,4 +147,195 @@ npm install -g ts-node
 
 ---
 
+# 📘 TypeScript Mastery: Module 02
+
+Welcome to **Module 02** of learning TypeScript! This module covers **Type Annotations, Basic Types (Primitive & Non-Primitive), Special Types**, and **Type Inference** with clean code examples.
+
+---
+
+## 📌 1. Primitive Types: `string`, `number`, `boolean`
+
+### 📖 Definition / সংজ্ঞা:
+*   **English:** Primitive types are the most basic data types built into JavaScript and TypeScript. They represent a single, immutable value.
+*   **বাংলা:** প্রিমিটিভ টাইপস হলো জাভাস্ক্রিপ্ট এবং টাইপস্ক্রিপ্টের একদম বেসিক ডেটা টাইপ, যা কেবল একটি সিঙ্গেল ভ্যালু রিপ্রেজেন্ট করে।
+
+### 💻 Code Example:
+```typescript
+// Primitive Types
+
+// String: Represents textual data / টেক্সট বা লেখা প্রকাশ করে
+const name: string = "Emon Hossain Hira";
+
+// Number: Represents numeric values (integers, floats) / সংখ্যা প্রকাশ করে
+const age: number = 23;
+
+// Boolean: Represents true or false / সত্য বা মিথ্যা প্রকাশ করে
+const isStudent: boolean = true;
+
+console.log("person name is : ", name);
+console.log("person age is : ", age);
+console.log("person is student : ", isStudent);
+
+```
+
+---
+
+## 📌 2. Non-Primitive Types: Arrays and Tuples
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Arrays:**
+* *English:* An array is a collection of similar types of data.
+* *বাংলা:* একই ধরণের একাধিক ডেটার কালেকশন বা লিস্টকে অ্যারে বলে।
+
+
+* **Tuples:**
+* *English:* A tuple is a fixed-size array where each element has a predefined type and order.
+* *বাংলা:* টাপল হলো একটি নির্দিষ্ট সাইজের অ্যারে, যার প্রতিটি উপাদানের ডেটা টাইপ এবং পজিশন আগে থেকেই ফিক্সড বা নির্ধারিত থাকে।
+
+
+
+### 💻 Code Example:
+
+```typescript
+// Non-Primitive Types: Arrays and Tuples
+
+// --- Arrays (Syntax 1) ---
+const numberArray: number[] = [1, 2, 3, 4, 5];
+const nameArray: string[] = ["Emon", "Hossain", "Hira"];
+
+console.log("array is number : ", numberArray);
+console.log("array is string : ", nameArray);
+
+// --- Arrays (Syntax 2: Generic Array) ---
+const numberArray1: Array<number> = [1, 2, 3, 4, 5, 6];
+const nameArray1: Array<string> = ["Emon", "Hossain", "Hira", "BUBT"];
+
+console.log("array is number : ", numberArray1);
+console.log("array is string : ", nameArray1);
+
+// --- Tuples ---
+// Structure: [string, number, boolean] -> Order must be maintained
+const person: [string, number, boolean] = ["Emon", 23, true];
+
+console.log("person full details: ", person);
+
+```
+
+---
+
+## 📌 3. Special Types: `any`, `unknown`, `void`, `null`, `undefined`
+
+### 📖 Definition / সংজ্ঞা:
+
+* **`any`:** Turns off type checking completely. It can hold *any* value. (Avoid using this!). / টাইপ চেকিং বন্ধ করে দেয়। যেকোনো ভ্যালু রাখতে পারে।
+* **`unknown`:** A safer alternative to `any`. You cannot perform operations on it without type checking first (Type Guard). / `any`-এর চেয়ে নিরাপদ। এটি ব্যবহার করার আগে টাইপ চেক করে নিশ্চিত হতে হয়।
+* **`void`:** Used as a return type for functions that do not return any value. / কোনো ফাংশন যদি কোনো ভ্যালু রিটার্ন না করে, তবে তার রিটার্ন টাইপ হয় `void`।
+* **`null` & `undefined`:** Represent absence of a value or uninitialized variables. / কোনো ভ্যালু খালি বা অনুপস্থিত বোঝাতে ব্যবহৃত হয়।
+
+### 💻 Code Example:
+
+```typescript
+// Special Types
+
+// 1. any: No type safety
+let person: any = "Emon Hossain Hira";
+console.log("person name is : ", person);
+
+person = 23; // Allowed
+console.log("person age is : ", person);
+
+person = true; // Allowed
+console.log("person is student : ", person);
+
+
+// 2. unknown: Safe type checking
+let person1: unknown = 12;
+
+if (typeof person1 === "string") {
+    console.log("person name is : ", person1); // Only runs if it's a string
+} else {
+    console.log("person is another data here", person1);
+}
+
+
+// 3. void: Function returns nothing
+function personishere(): void {
+    console.log("Person is Here");
+}
+personishere();
+
+
+// 4. null & undefined
+let nothing: null = null;
+let person2: undefined = undefined;
+
+console.log("nothing", nothing, "person2", person2);
+
+```
+
+---
+
+## 📌 4. Type Inference (টাইপ ইনফারেন্স)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** Type Inference means TypeScript automatically guesses and assigns a type to a variable based on its initial value, even if you don't explicitly write the type.
+* **বাংলা:** টাইপ ইনফারেন্স মানে হলো, আপনি যদি নিজে থেকে কোনো ভ্যারিয়েবলের টাইপ বলে নাও দেন, টাইপস্ক্রিপ্ট তার শুরুর ভ্যালু দেখে অটোমেটিকভাবে টাইপ বুঝে নেয়।
+
+### 💻 Code Example:
+
+```typescript
+// Type Inference
+
+let autoName = "Emon"; // TypeScript automatically knows this is a 'string'
+// autoName = 25; // ❌ Error: Type 'number' is not assignable to type 'string'.
+
+console.log("person data: ", autoName);
+
+```
+
+---
+
+## 🚀 Project: Simple Student Profile with Types
+
+Here we use a **Type Alias** (`type`) to create a structured custom object type for a student profile.
+এখানে আমরা একটি **Type Alias** ব্যবহার করে স্টুডেন্ট প্রোফাইলের জন্য একটি কাস্টম অবজেক্ট স্ট্রাকচার তৈরি করেছি।
+
+### 💻 Full Implementation:
+
+```typescript
+// Type Alias definition
+type Person = {
+  name: string;
+  age: number;
+  isStudent: boolean;
+  course: string[];
+  courseMark: number[];
+  courseInfo: [string, number, boolean]; // Tuple
+};
+
+// Creating an object using the Person type
+const emon: Person = {
+  name: "Emon Hossain Hira",
+  age: 23,
+  isStudent: true,
+  course: ["CSE", "EEE", "BBA"],
+  courseMark: [90, 80, 70],
+  courseInfo: ["CSE", 90, true],
+};
+
+// Function that accepts a parameter of type 'Person'
+function displayPersonInfo(person: Person): void {
+  console.log("User Here: ", person);
+}
+
+// Running the function
+displayPersonInfo(emon);
+
+```
+
+---
+
+
 ⚡ *Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!*

@@ -444,5 +444,174 @@ console.log("Multiplication",mul);
 console.log("Division",div);
 
 ```
+এখানে আপনার **Module 03**-এর জন্য একটি গোছানো এবং প্রফেশনাল **README.md** ফাইল তৈরি করে দেওয়া হলো। আগের মডিউলগুলোর মতো এটিতেও ইংরেজি ও বাংলা উভয় ভাষায় সহজ ডেফিনিশন এবং আপনার দেওয়া কোডগুলো সুন্দরভাবে বিন্যাস করা হয়েছে।
+
+---
+
+```markdown
+# 📘 TypeScript Mastery: Module 03
+
+Welcome to **Module 03** of learning TypeScript! This module focuses entirely on **Functions in TypeScript**, exploring parameter rules, strict return types, arrow functions, and practical calculator implementation.
+
+---
+
+## 📌 3.1 Function Types (ফাংশন টাইপস)
+
+### 📖 Definition / সংজ্ঞা:
+*   **English:** Function typing allows us to explicitly define the data types of the parameters a function accepts and the type of value it returns.
+*   **বাংলা:** ফাংশন টাইপিংয়ের মাধ্যমে একটি ফাংশন প্যারামিটার হিসেবে কী ধরণের ডেটা গ্রহণ করবে এবং কাজ শেষে কী ধরণের ডেটা রিটার্ন করবে তা নির্দিষ্ট করে দেওয়া হয়।
+
+### 💻 Code Example:
+```typescript
+function happy(smile: string): string {
+   return `Yes I am ${smile}`;
+}
+
+console.log(happy("happy"));
+
+```
+
+---
+
+## 📌 3.2 Optional and Default Parameters (অপশনাল এবং ডিফল্ট প্যারামিটার)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Optional Parameters (`?`):**
+* *English:* Allows a parameter to be skipped when calling the function. It becomes `undefined` if not provided.
+* *বাংলা:* কোনো প্যারামিটারকে ঐচ্ছিক করার জন্য `?` ব্যবহার করা হয়। ভ্যালু না দিলে এটি `undefined` হিসেবে গণ্য হয়।
+
+
+* **Default Parameters (`=`):**
+* *English:* Assigns a fallback value to a parameter if no value or `undefined` is passed during the function call.
+* *বাংলা:* ফাংশন কল করার সময় কোনো প্যারামিটারের ভ্যালু না দেওয়া হলে আগে থেকে সেট করে রাখা একটি ডিফল্ট ভ্যালু কাজ করে।
+
+
+
+### 💻 Code Example:
+
+```typescript
+// --- Optional Parameters ---
+function travel(
+  startPlace: string,
+  endPlace: string,
+  travelTime?: string, // Optional parameter
+): string {
+  return `I am travelling from ${startPlace} to ${endPlace} and it will take ${travelTime ? travelTime : "some time"}`;
+}
+
+let travelInfo = travel("Dhaka", "Chittagong");
+let travelInfo1 = travel("Dhaka", "Chittagong", "5 Hours");
+
+console.log("TravelInformation: ", travelInfo);
+console.log("TravelInformation: ", travelInfo1);
+
+
+// --- Default Parameters ---
+function User(name: string = "Guest"): string { // Default value is "Guest"
+  return `User Name is ${name}`;
+}
+
+let userInfo = User(); // Uses default value
+let userInfo1 = User("Emon Hossain Hira");
+
+console.log("UserInfo: ", userInfo);
+console.log("UserInfo: ", userInfo1);
+
+```
+
+---
+
+## 📌 3.3 Return Type & `never` Type (রিটার্ন টাইপ এবং নেভার টাইপ)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Return Type:** Explicitly declares what type of data a function will return (e.g., `number`, `string`). / ফাংশনটি কী ধরণের ডেটা ফেরত পাঠাবে তা নির্ধারণ করে।
+* **`never` Type:** Represents a value that *never* occurs. It is used for functions that continuously loop or always throw an exception/error, meaning they never finish successfully. / এমন ফাংশনে ব্যবহৃত হয় যা কখনো স্বাভাবিকভাবে শেষ হয় না (যেমন: সবসময় এরর থ্রো করে বা ইনফিনিট লুপে চলে)।
+
+### 💻 Code Example:
+
+```typescript
+// Standard Return Type
+function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+
+let summationValue = add(10, 20);
+console.log("summation is: ", summationValue);
+
+
+// never Type Example
+function error(): never {
+  throw new Error("Message is Wrong"); // Function terminates unexpectedly
+}
+
+// error(); // Uncomment to test (will crash execution intentionally)
+
+```
+
+---
+
+## 📌 3.4 Arrow Functions (অ্যারো ফাংশন)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** Arrow functions provide a concise syntax for writing function expressions. In TypeScript, type annotations are applied directly to the parameters and return value.
+* **বাংলা:** অ্যারো ফাংশন হলো ফাংশন লেখার একটি আধুনিক ও সংক্ষিপ্ত রূপ। টাইপস্ক্রিপ্টে এর প্যারামিটার এবং রিটার্ন টাইপ সরাসরি ব্র্যাকেটের ভেতরেই ডিফাইন করা হয়।
+
+### 💻 Code Example:
+
+```typescript
+const person = (name: string, age: number, isStudent: boolean): string => {
+  return `Person is ${name} and His age is now, ${age}. I am now as a ${isStudent}`;
+};
+
+let result = person("Emon Hossain Hira", 23, true);
+console.log(result);
+
+```
+
+---
+
+## 🚀 Project 2: Build Calculator With Typed Function
+
+একটি সহজ এবং টাইপ-সেফ ক্যালকুলেটর প্রজেক্ট যেখানে অ্যারো ফাংশন ব্যবহার করে গাণিতিক হিসাব করা হয়েছে।
+
+### 💻 Full Implementation:
+
+```typescript
+// Project - 02: Typed Calculator
+
+const summation = (num1: number, num2: number): number => {
+  return num1 + num2;
+};
+
+const substraction = (num1: number, num2: number): number => {
+  return num1 - num2;
+};
+
+const multiplication = (num1: number, num2: number): number => {
+  return num1 * num2;
+};
+
+const division = (num1: number, num2: number): number => {
+  return num1 / num2;
+};
+
+// Execution / রান করা
+let sum = summation(10, 20);
+let sub = substraction(20, 10);
+let mul = multiplication(10, 20);
+let div = division(20, 10);
+
+console.log("Summation: ", sum);
+console.log("Substraction: ", sub);
+console.log("Multiplication: ", mul);
+console.log("Division: ", div);
+
+```
+
+---
+
 
 ⚡ _Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!_

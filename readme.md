@@ -1,13 +1,14 @@
+```markdown
 # 📘 TypeScript Mastery — Complete Guide
 
 <div align="center">
 
 ```
-╔══════════════════════════════════════════════════════════╗
-║        🚀  WELCOME TO TYPESCRIPT MASTERY  🚀            ║
-║     From Zero to Hero — A Bilingual Learning Path       ║
-║           English • বাংলা • Code • Projects             ║
-╚══════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════╗
+║        🚀  WELCOME TO TYPESCRIPT MASTERY  🚀        ║
+║     From Zero to Hero — A Bilingual Learning Path   ║
+║           English • বাংলা • Code • Projects          ║
+╚══════════════════════════════════════════════════════╝
 ```
 
 </div>
@@ -18,855 +19,434 @@
 
 | Module | Topic | Key Concepts |
 |:------:|:------|:-------------|
-| [01](#-module-01--foundation--setup) | Foundation & Setup | Installation, Configuration, Architecture |
-| [02](#-module-02--types--annotations) | Types & Annotations | Primitive, Non-Primitive, Special Types, Inference |
-| [03](#-module-03--functions) | Functions | Parameters, Return Types, Arrow Functions, Project |
+| [01](#module-01--foundation--setup) | Foundation & Setup | Installation, Configuration, Architecture |
+| [02](#module-02--types--annotations) | Types & Annotations | Primitive, Non-Primitive, Special Types, Inference |
+| [03](#module-03--functions) | Functions | Parameters, Return Types, Arrow Functions, Project |
 
 ---
 
-# 📘 Module 01 — Foundation & Setup
-
-<div align="center">
-
-```
-┌─────────────────────────────────────────────┐
-│  🏗️  Setting the Groundwork for TypeScript  │
-└─────────────────────────────────────────────┘
-```
-
-</div>
+# MODULE 01 — FOUNDATION & SETUP
 
 ---
 
-## 🎯 What is TypeScript?
+## 🎯 What is TypeScript? / টাইপস্ক্রিপ্ট কী?
 
-<table>
-<tr>
-<td width="50%">
+| English | বাংলা |
+|:--------|:------|
+| TypeScript is a strongly typed, open-source programming language developed and maintained by Microsoft. It is a strict **syntactical superset of JavaScript**, meaning any valid JavaScript code is also valid TypeScript code. | TypeScript হলো একটি স্ট্রংলি টাইপড, ওপেন-সোর্স প্রোগ্রামিং ল্যাঙ্গুয়েজ যা মাইক্রোসফট তৈরি ও মেইনটেইন করে। এটি মূলত **জাভাস্ক্রিপ্টের একটি সুপারসেট**, যার মানে হলো যেকোনো ভ্যালিড জাভাস্ক্রিপ্ট কোড টাইপস্ক্রিপ্টেও সম্পূর্ণ ভ্যালিড। |
 
-### 🇬🇧 English
-
-TypeScript is a **strongly typed** programming language that builds on JavaScript. Think of it as **JavaScript with superpowers** — it adds static type checking while keeping all JavaScript features intact.
-
-> 🔑 **Key Insight:** TypeScript is a **syntactical superset** of JavaScript. Every `.js` file is a valid `.ts` file, but not vice versa.
-
-</td>
-<td width="50%">
-
-### 🇧🇩 বাংলা
-
-TypeScript হলো একটি **স্ট্রংলি টাইপড** প্রোগ্রামিং ল্যাঙ্গুয়েজ যা জাভাস্ক্রিপ্টের উপর ভিত্তি করে তৈরি। এটিকে **জাভাস্ক্রিপ্টের সুপারচার্জড ভার্সন** হিসেবে ভাবতে পারেন — স্ট্যাটিক টাইপ চেকিং যোগ করে, অথচ জাভাস্ক্রিপ্টের সকল বৈশিষ্ট্য অক্ষুণ্ণ রাখে।
-
-> 🔑 **গুরুত্বপূর্ণ:** TypeScript জাভাস্ক্রিপ্টের **সিনট্যাক্টিক্যাল সুপারসেট**। প্রতিটি `.js` ফাইল `.ts` ফাইল হিসেবে বৈধ, কিন্তু উল্টোটা নয়।
-
-</td>
-</tr>
-</table>
-
-### 🔄 The Compilation Flow
-
-```mermaid
-graph LR
-    A[📝 TypeScript<br/>.ts files] -->|tsc compiler| B[⚡ JavaScript<br/>.js files]
-    B -->|runs in| C[🌐 Browser / Node.js]
-    
-    style A fill:#3178C6,color:#fff
-    style B fill:#F7DF1E,color:#000
-    style C fill:#333,color:#fff
+```
+💡 KEY CONCEPT / মূল বিষয়:
+Browsers cannot run TypeScript directly.
+It compiles down to clean, readable JavaScript before execution.
+ব্রাউজার সরাসরি টাইপস্ক্রিপ্ট রান করতে পারে না।
+রান করার আগে এটি কম্পাইল হয়ে ক্লিন জাভাস্ক্রিপ্ট কোডে রূপান্তরিত হয়।
 ```
 
 ---
 
-## 🆚 TypeScript vs JavaScript — Visual Comparison
+## 🚀 Why Use TypeScript Over JavaScript? / কেন জাভাস্ক্রিপ্টের চেয়ে টাইপস্ক্রিপ্ট ব্যবহার করবেন?
 
-<table>
-<tr>
-<th width="33%">Feature</th>
-<th width="33%">JavaScript 💛</th>
-<th width="33%">TypeScript 💙</th>
-</tr>
-<tr>
-<td>
-
-### 🏷️ Type System
-</td>
-<td>
-
-```
-Runtime checking
-Errors appear AFTER execution
-```
-```javascript
-let age = "twenty";
-age + 5; // "twenty5" 🤦
-```
-</td>
-<td>
-
-```
-Compile-time checking
-Errors appear WHILE coding
-```
-```typescript
-let age: number = "twenty"; 
-// ❌ Error immediately!
-```
-</td>
-</tr>
-<tr>
-<td>
-
-### 🔍 Error Detection
-</td>
-<td>🐛 Bugs found in production</td>
-<td>🛡️ Bugs caught in editor</td>
-</tr>
-<tr>
-<td>
-
-### 💡 IDE Support
-</td>
-<td>Basic autocomplete</td>
-<td>Rich IntelliSense + documentation</td>
-</tr>
-<tr>
-<td>
-
-### 📈 Scalability
-</td>
-<td>Challenging in large projects</td>
-<td>Excellent for enterprise apps</td>
-</tr>
-</table>
+| Feature / বৈশিষ্ট্য | JavaScript | TypeScript |
+|:---------------------|:-----------|:-----------|
+| **Type System / টাইপ সিস্টেম** | Dynamically Typed (Checked at runtime) | Statically Typed (Checked at compile-time) |
+| **Error Detection / ত্রুটি সনাক্তকরণ** | Errors found during execution (রানটাইমে ভুল ধরা পড়ে) | Errors caught during development (কোড লেখার সময়ই ভুল ধরা পড়ে) |
+| **Autocompletion / অটো-কমপ্লিশন** | Limited / Basic | Rich IntelliSense and auto-complete support (সমৃদ্ধ কোড সাজেশন) |
+| **Maintainability / রক্ষণাবেক্ষণযোগ্যতা** | Harder to scale in large codebases | Highly predictable and structured for large teams |
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Installation & Setup Guide / ইনস্টলেশন এবং সেটআপ গাইড
 
-### 📋 Prerequisites Checklist
+### Step 1: Initialize the Project / প্রজেক্ট ইনিশিয়ালাইজ করা
 
-- [ ] Node.js installed (v14+)
-- [ ] VS Code (or preferred editor)
-- [ ] Terminal access
-- [ ] Internet connection (for npm)
-
-### 🚦 Step-by-Step Setup
-
-<table>
-<tr>
-<td width="5%">
-
-### 1️⃣
-</td>
-<td>
-
-**Initialize Project**
 ```bash
 npm init -y
 ```
-> Creates `package.json` — your project's identity card
-</td>
-</tr>
-<tr>
-<td>
 
-### 2️⃣
-</td>
-<td>
+> Creates `package.json` — your project's identity card / আপনার প্রজেক্টের পরিচয়পত্র তৈরি করে।
 
-**Install TypeScript**
+---
+
+### Step 2: Install TypeScript Locally / লোকালি টাইপস্ক্রিপ্ট ইনস্টল করা
+
 ```bash
 npm install typescript --save-dev
 ```
-> Adds TypeScript compiler to your project only
-</td>
-</tr>
-<tr>
-<td>
 
-### 3️⃣
-</td>
-<td>
+> Adds TypeScript compiler to your project / আপনার প্রজেক্টে টাইপস্ক্রিপ্ট কম্পাইলার যোগ করে।
 
-**Generate Config**
+---
+
+### Step 3: Global Installation (Optional) / গ্লোবাল ইনস্টলেশন (ঐচ্ছিক)
+
+```bash
+npm install -g typescript
+```
+
+> If you want to use `tsc` command anywhere on your machine / মেশিনের যেকোনো জায়গা থেকে `tsc` কমান্ড ব্যবহার করতে চাইলে।
+
+---
+
+## ⚙️ TypeScript Configuration / টাইপস্ক্রিপ্ট কনফিগারেশন
+
+Generate the configuration file / কনফিগারেশন ফাইল তৈরি করুন:
+
 ```bash
 tsc --init
 ```
-> Creates `tsconfig.json` — the brain of your TypeScript setup
-</td>
-</tr>
-<tr>
-<td>
 
-### 4️⃣
-</td>
-<td>
+Open `tsconfig.json` and update these settings / `tsconfig.json` ওপেন করে নিচের সেটিংস আপডেট করুন:
 
-**Configure Paths** (in `tsconfig.json`)
-```json
-{
-  "rootDir": "./src",    // Where YOU write code
-  "outDir": "./dist"     // Where COMPILED code goes
-}
-```
-</td>
-</tr>
-</table>
+| Setting | Value | Purpose / উদ্দেশ্য |
+|:--------|:------|:--------------------|
+| `rootDir` | `"./src"` | Where you write TypeScript code / যেখানে আপনি টাইপস্ক্রিপ্ট কোড লিখবেন |
+| `outDir` | `"./dist"` | Where compiled JavaScript goes / কম্পাইল হওয়া জাভাস্ক্রিপ্ট যেখানে জমা হবে |
 
 ---
 
-## ⚙️ Understanding `tsconfig.json`
-
-```
-┌────────────────────────────────────────────────────────┐
-│                   tsconfig.json                        │
-│                   ═════════════                        │
-│  • Controls how TypeScript behaves                     │
-│  • Defines input/output directories                    │
-│  • Sets strictness levels                              │
-│  • Determines which JS version to target               │
-└────────────────────────────────────────────────────────┘
-```
-
-### 🎛️ Essential Settings
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2020",           // Output JS version
-    "module": "commonjs",         // Module system
-    "rootDir": "./src",           // Source folder
-    "outDir": "./dist",           // Output folder
-    "strict": true,               // Enable all checks
-    "esModuleInterop": true       // Import compatibility
-  }
-}
-```
-
----
-
-## 📂 Project Architecture
+## 📂 Project Folder Architecture / ফোল্ডার স্ট্রাকচার
 
 ```
 TypeScript-Project/
-│
-├── 📁 src/                    ← You code here
-│   └── index.ts               ← Entry point
-│
-├── 📁 dist/                   ← Auto-generated (DON'T EDIT)
-│   └── index.js               ← Compiled output
-│
-├── 📁 node_modules/           ← Dependencies (DON'T TOUCH)
-│
-├── 📄 tsconfig.json           ← TypeScript settings
-├── 📄 package.json            ← Project metadata
-└── 📄 .gitignore              ← Files to exclude from Git
+├── node_modules/         # Dependencies / ডিপেন্ডেন্সি (অটো-জেনারেটেড)
+├── dist/                 # Compiled JavaScript output / কম্পাইলড আউটপুট
+│   └── index.js
+├── src/                  # Source TypeScript files / সোর্স ফাইল
+│   └── index.ts
+├── .gitignore            # Git ignore rules
+├── package.json          # Project metadata / প্রজেক্ট মেটাডেটা
+└── tsconfig.json         # TypeScript configuration / টাইপস্ক্রিপ্ট কনফিগারেশন
 ```
 
-### 🚫 Git Ignore Rules
-
-```gitignore
-# MUST include these:
-node_modules/
-dist/
-*.js.map
+```
+⚠️ MANDATORY / বাধ্যতামূলক:
+Always add node_modules/ and dist/ to .gitignore
+node_modules/ এবং dist/ অবশ্যই .gitignore-এ যুক্ত করবেন।
 ```
 
 ---
 
-## 💻 First TypeScript Program
+## ✍️ Code Example & Execution / কোড উদাহরণ এবং রান করার নিয়ম
 
-### 📝 Source Code (`src/index.ts`)
+### Source File: `src/index.ts`
 
 ```typescript
-// 🎯 A typed function that returns a person object
-function createPerson(
-  name: string, 
-  age: number
-): { name: string; age: number } {
+function person(name: string, age: number): { name: string; age: number } {
   return { name, age };
 }
 
-// ✨ Creating a person
-const user = createPerson("Emon", 40);
-
-// 📤 Output
-console.log("✅ Person created:", user);
+const result = person("Emon", 40);
+console.log("Person is: ", result);
 ```
 
-### ▶️ Execution Methods
+### How to Run / কিভাবে রান করবেন:
 
-<table>
-<tr>
-<td width="50%">
+**Method 1: Manual Compilation / ম্যানুয়াল কম্পাইলেশন**
 
-#### Method A: Manual Compilation
 ```bash
-# Step 1: Compile
+# Compile / কম্পাইল
 tsc
 
-# Step 2: Run
+# Run / রান
 node dist/index.js
 ```
-</td>
-<td width="50%">
 
-#### Method B: Direct Execution
+**Method 2: Direct Run with ts-node / ts-node দিয়ে সরাসরি রান**
+
 ```bash
-# Install ts-node globally
+# Install / ইনস্টল
 npm install -g ts-node
 
-# Run directly
+# Run / রান
 ts-node src/index.ts
 ```
-</td>
-</tr>
-</table>
 
 ---
 
-# 📘 Module 02 — Types & Annotations
-
-<div align="center">
-
-```
-┌──────────────────────────────────────────┐
-│  🏷️  Understanding TypeScript's Core     │
-│     Type System & Type Safety            │
-└──────────────────────────────────────────┘
-```
-
-</div>
+# MODULE 02 — TYPES & ANNOTATIONS
 
 ---
 
-## 🗺️ TypeScript Type Hierarchy
+## 📌 Primitive Types: `string`, `number`, `boolean`
 
-```
-                        ┌─────────┐
-                        │  Types  │
-                        └────┬────┘
-                             │
-           ┌─────────────────┼─────────────────┐
-           │                 │                 │
-     ┌─────▼─────┐    ┌─────▼─────┐    ┌─────▼─────┐
-     │ Primitive │    │  Special  │    │  Complex  │
-     └─────┬─────┘    └─────┬─────┘    └─────┬─────┘
-           │                 │                 │
-    ┌──────┼──────┐    ┌────┼────┐    ┌───────┼───────┐
-    │      │      │    │    │    │    │       │       │
-  string number boolean any unknown void  Array  Tuple  Object
-```
+### Definition / সংজ্ঞা
 
----
+| English | বাংলা |
+|:--------|:------|
+| Primitive types are the most basic data types built into JavaScript and TypeScript. They represent a single, immutable value. | প্রিমিটিভ টাইপস হলো জাভাস্ক্রিপ্ট এবং টাইপস্ক্রিপ্টের একদম বেসিক ডেটা টাইপ, যা কেবল একটি সিঙ্গেল ভ্যালু রিপ্রেজেন্ট করে। |
 
-## 📌 3.1 Primitive Types
-
-<div align="center">
-
-| Type | Represents | Example |
-|:----:|:-----------|:--------|
-| `string` | Text data | `"Hello"` |
-| `number` | All numbers | `42`, `3.14` |
-| `boolean` | True/False | `true`, `false` |
-
-</div>
-
-### 💻 Code Example with Annotations
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── Primitive Types in Action ───
+// String: Represents textual data / টেক্সট বা লেখা প্রকাশ করে
+const name: string = "Emon Hossain Hira";
 
-// 🟢 String: For textual data
-const personName: string = "Emon Hossain Hira";
+// Number: Represents numeric values / সংখ্যা প্রকাশ করে
+const age: number = 23;
 
-// 🟡 Number: For integers & floats (no separate int/float!)
-const personAge: number = 23;
+// Boolean: Represents true or false / সত্য বা মিথ্যা প্রকাশ করে
+const isStudent: boolean = true;
 
-// 🔵 Boolean: For binary states
-const isEnrolled: boolean = true;
-
-// 📊 Output Section
-console.log("╔══════════════════════╗");
-console.log("║   PERSON PROFILE     ║");
-console.log("╠══════════════════════╣");
-console.log(`║ Name   : ${personName.padEnd(12)}║`);
-console.log(`║ Age    : ${personAge.toString().padEnd(12)}║`);
-console.log(`║ Student: ${isEnrolled.toString().padEnd(12)}║`);
-console.log("╚══════════════════════╝");
+console.log("person name is : ", name);
+console.log("person age is : ", age);
+console.log("person is student : ", isStudent);
 ```
 
 ---
 
-## 📌 3.2 Non-Primitive Types
+## 📌 Non-Primitive Types: Arrays and Tuples
 
-### 🔢 Arrays — Ordered Collections
+### Definition / সংজ্ঞা
 
-```typescript
-// ─── Array Type Annotations ───
+| Type | English | বাংলা |
+|:-----|:--------|:------|
+| **Array** | An array is a collection of similar types of data. | একই ধরণের একাধিক ডেটার কালেকশন বা লিস্টকে অ্যারে বলে। |
+| **Tuple** | A tuple is a fixed-size array where each element has a predefined type and order. | টাপল হলো একটি নির্দিষ্ট সাইজের অ্যারে, যার প্রতিটি উপাদানের ডেটা টাইপ এবং পজিশন আগে থেকেই ফিক্সড থাকে। |
 
-// Method 1: Square bracket syntax (RECOMMENDED)
-const scores: number[] = [95, 87, 92, 78];
-const friends: string[] = ["Rahim", "Karim", "Jabbar"];
-
-// Method 2: Generic syntax (same result)
-const ages: Array<number> = [23, 25, 30];
-const cities: Array<string> = ["Dhaka", "Chittagong"];
-
-console.log("📊 Scores:", scores);
-console.log("👥 Friends:", friends);
-```
-
-### 📦 Tuples — Fixed-Length Arrays
-
-```
-Tuple = [Known Length] + [Known Types] + [Fixed Order]
-
-┌─────────┬─────────┬─────────┐
-│ index 0 │ index 1 │ index 2 │
-│ string  │ number  │ boolean │
-└─────────┴─────────┴─────────┘
-```
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── Tuple: Structured Data ───
+// --- Arrays / অ্যারে ---
+const numberArray: number[] = [1, 2, 3, 4, 5];
+const nameArray: string[] = ["Emon", "Hossain", "Hira"];
 
-// [Name, Age, Enrollment Status]
-const student: [string, number, boolean] = ["Emon", 23, true];
+// Generic Array syntax / জেনেরিক অ্যারে সিনট্যাক্স
+const numberArray1: Array<number> = [1, 2, 3, 4, 5, 6];
+const nameArray1: Array<string> = ["Emon", "Hossain", "Hira", "BUBT"];
 
-// Destructuring for clarity
-const [sName, sAge, sStatus] = student;
+// --- Tuples / টাপল ---
+// Structure: [string, number, boolean] → Order must be maintained
+// স্ট্রাকচার: [স্ট্রিং, নাম্বার, বুলিয়ান] → ক্রম অবশ্যই বজায় রাখতে হবে
+const person: [string, number, boolean] = ["Emon", 23, true];
 
-console.log(`
-┌──────────────────────┐
-│  STUDENT TUPLE       │
-├──────────────────────┤
-│ Name  : ${sName.padEnd(12)}│
-│ Age   : ${sAge.toString().padEnd(12)}│
-│ Active: ${sStatus.toString().padEnd(12)}│
-└──────────────────────┘
-`);
+console.log("person full details: ", person);
 ```
 
 ---
 
-## 📌 3.3 Special Types
+## 📌 Special Types: `any`, `unknown`, `void`, `null`, `undefined`
 
-### 🎭 Type Comparison Matrix
+### Definition / সংজ্ঞা
 
-<table>
-<tr>
-<th>Type</th>
-<th>Safety Level</th>
-<th>Use Case</th>
-<th>Best Practice</th>
-</tr>
-<tr>
-<td>
+| Type | English | বাংলা |
+|:-----|:--------|:------|
+| `any` | Turns off type checking completely. Can hold any value. (Avoid using!) | টাইপ চেকিং বন্ধ করে দেয়। যেকোনো ভ্যালু রাখতে পারে। (এড়িয়ে চলুন!) |
+| `unknown` | Safer alternative to `any`. Must check type before using. | `any`-এর চেয়ে নিরাপদ। ব্যবহারের আগে টাইপ চেক করে নিশ্চিত হতে হয়। |
+| `void` | Return type for functions that do not return any value. | কোনো ফাংশন ভ্যালু রিটার্ন না করলে তার রিটার্ন টাইপ। |
+| `null` / `undefined` | Represent absence of value or uninitialized variables. | কোনো ভ্যালু খালি বা অনুপস্থিত বোঝাতে ব্যবহৃত হয়। |
 
-### `any`
-</td>
-<td>🔴 Unsafe</td>
-<td>Quick prototyping</td>
-<td>❌ AVOID in production</td>
-</tr>
-<tr>
-<td>
-
-### `unknown`
-</td>
-<td>🟡 Safe (with checks)</td>
-<td>API responses, user input</td>
-<td>✅ Use with type guards</td>
-</tr>
-<tr>
-<td>
-
-### `void`
-</td>
-<td>🟢 Safe</td>
-<td>Functions without return</td>
-<td>✅ Explicit return type</td>
-</tr>
-<tr>
-<td>
-
-### `null` / `undefined`
-</td>
-<td>🟢 Safe</td>
-<td>Absence of value</td>
-<td>⚠️ Enable strict mode</td>
-</tr>
-</table>
-
-### 💻 Complete Example
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── Special Types Demo ───
+// 1. any: No type safety / কোনো টাইপ সেফটি নেই
+let person: any = "Emon Hossain Hira";
+person = 23;   // Allowed / অনুমোদিত
+person = true; // Allowed / অনুমোদিত
 
-// ⚠️ 'any' — Type safety OFF
-let flexibleVar: any = "Hello World";
-flexibleVar = 42;    // ✅ Allowed
-flexibleVar = true;  // ✅ Allowed
-
-// ✅ 'unknown' — Type safety ON
-let safeVar: unknown = "Hello";
-
-// Must CHECK type before using
-if (typeof safeVar === "string") {
-  console.log("📝 String value:", safeVar.toUpperCase());
+// 2. unknown: Safe type checking / নিরাপদ টাইপ চেকিং
+let person1: unknown = 12;
+if (typeof person1 === "string") {
+  console.log("person name is : ", person1);
 } else {
-  console.log("❓ Not a string:", safeVar);
+  console.log("person is another data here", person1);
 }
 
-// 📭 'void' — No return value
-function logMessage(msg: string): void {
-  console.log(`📢 ${msg}`);
-  // No return statement needed
+// 3. void: Function returns nothing / ফাংশন কিছু রিটার্ন করে না
+function personishere(): void {
+  console.log("Person is Here");
 }
 
-// 🈳 'null' and 'undefined'
-const emptyValue: null = null;
-const notAssigned: undefined = undefined;
-
-logMessage("TypeScript is awesome!");
+// 4. null & undefined
+let nothing: null = null;
+let person2: undefined = undefined;
 ```
 
 ---
 
-## 📌 3.4 Type Inference
+## 📌 Type Inference / টাইপ ইনফারেন্স
 
-```
-┌──────────────────────────────────────────────┐
-│  TypeScript is SMART enough to figure out    │
-│  types automatically in many cases!          │
-└──────────────────────────────────────────────┘
-```
+### Definition / সংজ্ঞা
 
-### 🤖 How Inference Works
+| English | বাংলা |
+|:--------|:------|
+| Type Inference means TypeScript automatically guesses and assigns a type to a variable based on its initial value, even if you don't explicitly write the type. | টাইপ ইনফারেন্স মানে হলো, আপনি যদি নিজে থেকে কোনো ভ্যারিয়েবলের টাইপ বলে নাও দেন, টাইপস্ক্রিপ্ট তার শুরুর ভ্যালু দেখে অটোমেটিকভাবে টাইপ বুঝে নেয়। |
+
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── Type Inference Examples ───
-
-// Case 1: Variable initialization
-let inferredString = "Hello";     
-//    ^? TypeScript knows this is 'string'
-// inferredString = 42; ❌ Error!
-
-// Case 2: Function return
-function add(a: number, b: number) {  
-  return a + b;  
-  //    ^? TypeScript infers return type: number
-}
-
-// Case 3: Array initialization
-let numbers = [1, 2, 3];  
-//    ^? TypeScript infers: number[]
-
-console.log("🧠 TypeScript inferred all types automatically!");
+let autoName = "Emon"; // TypeScript knows this is 'string' / টাইপস্ক্রিপ্ট জানে এটি স্ট্রিং
+// autoName = 25; // ❌ Error: Type 'number' is not assignable to type 'string'.
+console.log("person data: ", autoName);
 ```
 
 ---
 
-## 🚀 Module 02 Project: Student Profile System
+## 🚀 Module 02 Project: Student Profile System / স্টুডেন্ট প্রোফাইল সিস্টেম
 
 ```typescript
-// ─── Type Alias for Student Profile ───
-type StudentProfile = {
+// Type Alias definition / টাইপ এলিয়াস ডেফিনিশন
+type Person = {
   name: string;
   age: number;
-  isActive: boolean;
-  courses: string[];
-  marks: number[];
-  meta: [string, number, boolean];  // [course, mark, passed]
+  isStudent: boolean;
+  course: string[];
+  courseMark: number[];
+  courseInfo: [string, number, boolean]; // Tuple
 };
 
-// ─── Creating a Student ───
-const emonProfile: StudentProfile = {
+// Creating an object / অবজেক্ট তৈরি
+const emon: Person = {
   name: "Emon Hossain Hira",
   age: 23,
-  isActive: true,
-  courses: ["CSE101", "EEE202", "BBA303"],
-  marks: [90, 85, 78],
-  meta: ["CSE101", 90, true],
+  isStudent: true,
+  course: ["CSE", "EEE", "BBA"],
+  courseMark: [90, 80, 70],
+  courseInfo: ["CSE", 90, true],
 };
 
-// ─── Display Function ───
-function displayProfile(profile: StudentProfile): void {
-  console.log(`
-╔══════════════════════════════╗
-║     STUDENT PROFILE          ║
-╠══════════════════════════════╣
-║ Name   : ${profile.name.padEnd(20)}║
-║ Age    : ${profile.age.toString().padEnd(20)}║
-║ Status : ${profile.isActive ? 'Active' : 'Inactive'.padEnd(20)}║
-║ Courses: ${profile.courses.join(', ').padEnd(20)}║
-╚══════════════════════════════╝
-  `);
+// Function with typed parameter / টাইপড প্যারামিটার সহ ফাংশন
+function displayPersonInfo(person: Person): void {
+  console.log("User Here: ", person);
 }
 
-displayProfile(emonProfile);
+displayPersonInfo(emon);
 ```
 
 ---
 
-# 📘 Module 03 — Functions
-
-<div align="center">
-
-```
-┌──────────────────────────────────────────┐
-│  ⚡  Functions in TypeScript              │
-│     Typed Parameters • Return Types      │
-│     Arrow Functions • Calculator Project │
-└──────────────────────────────────────────┘
-```
-
-</div>
+# MODULE 03 — FUNCTIONS
 
 ---
 
-## 📌 3.1 Function Type Annotations
+## 📌 Function Types / ফাংশন টাইপস
 
-### 🔬 Anatomy of a Typed Function
+### Definition / সংজ্ঞা
 
-```
-┌────────── Parameter Types ──────────┐
-│                                     │
-│  function name(param: type): returnType {  
-│       ▲                        ▲
-│       │                        │
-│  Function name          Return type annotation
-│                                     │
-└─────────────────────────────────────┘
-```
+| English | বাংলা |
+|:--------|:------|
+| Function typing allows us to explicitly define the data types of the parameters a function accepts and the type of value it returns. | ফাংশন টাইপিংয়ের মাধ্যমে একটি ফাংশন প্যারামিটার হিসেবে কী ধরণের ডেটা গ্রহণ করবে এবং কাজ শেষে কী ধরণের ডেটা রিটার্ন করবে তা নির্দিষ্ট করে দেওয়া হয়। |
 
-### 💻 Example
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── Fully Typed Function ───
-function greet(mood: string): string {
-  return `😊 Yes, I am ${mood}!`;
+function happy(smile: string): string {
+  return `Yes I am ${smile}`;
 }
 
-const message: string = greet("excited");
-console.log(message); // "😊 Yes, I am excited!"
+console.log(happy("happy"));
 ```
 
 ---
 
-## 📌 3.2 Parameter Variations
+## 📌 Optional and Default Parameters / অপশনাল এবং ডিফল্ট প্যারামিটার
 
-### 🎯 Parameter Types Visual Guide
+### Definition / সংজ্ঞা
 
-| Parameter Type | Syntax | When to Use |
-|:---------------|:-------|:------------|
-| **Required** | `name: string` | Always needed |
-| **Optional** | `name?: string` | Might be omitted |
-| **Default** | `name: string = "Guest"` | Has fallback value |
+| Type | English | বাংলা |
+|:-----|:--------|:------|
+| **Optional (`?`)** | Allows a parameter to be skipped. Becomes `undefined` if not provided. | প্যারামিটারকে ঐচ্ছিক করে। না দিলে `undefined` হয়। |
+| **Default (`=`)** | Assigns a fallback value if no value is passed. | ভ্যালু না দেওয়া হলে আগের সেট করা ডিফল্ট ভ্যালু কাজ করে। |
 
-### 💻 Complete Example
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── Optional Parameters (marked with ?) ───
-function planTrip(
-  from: string,
-  to: string,
-  duration?: string  // 👈 Optional — can be undefined
+// Optional Parameters / অপশনাল প্যারামিটার
+function travel(
+  startPlace: string,
+  endPlace: string,
+  travelTime?: string, // Optional / ঐচ্ছিক
 ): string {
-  const time = duration || "unknown time";
-  return `🚗 Trip: ${from} → ${to} (${time})`;
+  return `I am travelling from ${startPlace} to ${endPlace} and it will take ${travelTime ? travelTime : "some time"}`;
 }
 
-console.log(planTrip("Dhaka", "Sylhet"));          
-// Output: 🚗 Trip: Dhaka → Sylhet (unknown time)
+console.log(travel("Dhaka", "Chittagong"));
+console.log(travel("Dhaka", "Chittagong", "5 Hours"));
 
-console.log(planTrip("Dhaka", "Sylhet", "5 hours"));
-// Output: 🚗 Trip: Dhaka → Sylhet (5 hours)
-
-
-// ─── Default Parameters (marked with =) ───
-function createUser(
-  name: string = "Guest User",  // 👈 Default value
-  role: string = "Viewer"
-): string {
-  return `👤 ${name} — Role: ${role}`;
+// Default Parameters / ডিফল্ট প্যারামিটার
+function User(name: string = "Guest"): string {
+  return `User Name is ${name}`;
 }
 
-console.log(createUser());                         
-// 👤 Guest User — Role: Viewer
-
-console.log(createUser("Admin", "Administrator")); 
-// 👤 Admin — Role: Administrator
+console.log(User());           // Uses default / ডিফল্ট ব্যবহার
+console.log(User("Emon Hossain Hira"));
 ```
 
 ---
 
-## 📌 3.3 Return Types
+## 📌 Return Type & `never` Type / রিটার্ন টাইপ এবং নেভার টাইপ
 
-### 🔁 Return Type Categories
+### Definition / সংজ্ঞা
+
+| Type | English | বাংলা |
+|:-----|:--------|:------|
+| **Return Type** | Explicitly declares what type of data a function will return. | ফাংশন কী ধরণের ডেটা ফেরত পাঠাবে তা নির্ধারণ করে। |
+| **`never`** | Represents a value that never occurs. Used for functions that always throw errors or never finish. | এমন ফাংশনে ব্যবহৃত হয় যা কখনো স্বাভাবিকভাবে শেষ হয় না (সবসময় এরর থ্রো করে বা ইনফিনিট লুপে চলে)। |
+
+### Code Example / কোড উদাহরণ
 
 ```typescript
-// ─── 1. Explicit Return Type ───
-function multiply(x: number, y: number): number {
-  return x * y;
+// Standard Return Type / সাধারণ রিটার্ন টাইপ
+function add(num1: number, num2: number): number {
+  return num1 + num2;
 }
 
-// ─── 2. Void — Returns Nothing ───
-function logInfo(info: string): void {
-  console.log(`📋 ${info}`);
-  // No return statement
+console.log("summation is: ", add(10, 20));
+
+// never Type / নেভার টাইপ
+function error(): never {
+  throw new Error("Message is Wrong");
 }
-
-// ─── 3. Never — Function NEVER finishes ───
-function throwError(message: string): never {
-  throw new Error(`💥 ${message}`);
-  // Code after this is unreachable
-}
-
-// ─── Usage ───
-console.log(`🔢 5 × 3 = ${multiply(5, 3)}`);
-logInfo("Operation successful");
-// throwError("Critical failure!"); // Uncomment to test
-```
-
-### 📊 Return Type Decision Flow
-
-```
-Does the function return a value?
-         │
-    ┌────┴────┐
-    │         │
-   YES        NO
-    │         │
-    │    ┌────▼────┐
-    │    │  void   │
-    │    └─────────┘
-    │
-    ▼
-Can it ever finish?
-    │
-┌───┴───┐
-│       │
-YES     NO
-│       │
-│   ┌───▼────┐
-│   │ never  │
-│   └────────┘
-▼
-Return specific type
-(string, number, etc.)
 ```
 
 ---
 
-## 📌 3.4 Arrow Functions
+## 📌 Arrow Functions / অ্যারো ফাংশন
 
-### 🏹 Arrow Function Syntax
+### Definition / সংজ্ঞা
 
-```
-Traditional Function:
-function add(a: number, b: number): number {
-  return a + b;
-}
+| English | বাংলা |
+|:--------|:------|
+| Arrow functions provide a concise syntax for writing function expressions. In TypeScript, type annotations are applied directly to the parameters and return value. | অ্যারো ফাংশন হলো ফাংশন লেখার একটি আধুনিক ও সংক্ষিপ্ত রূপ। টাইপস্ক্রিপ্টে এর প্যারামিটার এবং রিটার্ন টাইপ সরাসরি ব্র্যাকেটের ভেতরেই ডিফাইন করা হয়। |
 
-Arrow Function Equivalent:
-const add = (a: number, b: number): number => {
-  return a + b;
+### Code Example / কোড উদাহরণ
+
+```typescript
+const person = (name: string, age: number, isStudent: boolean): string => {
+  return `Person is ${name} and His age is now, ${age}. I am now as a ${isStudent}`;
 };
 
-Even Shorter (single expression):
-const add = (a: number, b: number): number => a + b;
-```
-
-### 💻 Practical Example
-
-```typescript
-// ─── Arrow Function with Full Typing ───
-const formatPerson = (
-  name: string,
-  age: number,
-  isActive: boolean
-): string => {
-  return `👤 ${name} | Age: ${age} | Status: ${isActive ? '🟢' : '🔴'}`;
-};
-
-console.log(formatPerson("Emon", 23, true));
+console.log(person("Emon Hossain Hira", 23, true));
 ```
 
 ---
 
-## 🚀 Module 03 Project: Typed Calculator
+## 🚀 Module 03 Project: Typed Calculator / টাইপড ক্যালকুলেটর
 
 ```typescript
-// ═══════════════════════════════════════
-//   🧮 TYPED CALCULATOR APPLICATION
-// ═══════════════════════════════════════
+const summation = (num1: number, num2: number): number => num1 + num2;
+const substraction = (num1: number, num2: number): number => num1 - num2;
+const multiplication = (num1: number, num2: number): number => num1 * num2;
+const division = (num1: number, num2: number): number => num1 / num2;
 
-// ─── Arithmetic Operations ───
-const add = (a: number, b: number): number => a + b;
-const subtract = (a: number, b: number): number => a - b;
-const multiply = (a: number, b: number): number => a * b;
-const divide = (a: number, b: number): number => a / b;
-
-// ─── Calculator Function ───
-function calculate(
-  operation: string,
-  num1: number,
-  num2: number
-): void {
-  let result: number;
-  
-  switch (operation) {
-    case '+': result = add(num1, num2); break;
-    case '-': result = subtract(num1, num2); break;
-    case '×': result = multiply(num1, num2); break;
-    case '÷': result = divide(num1, num2); break;
-    default:
-      console.log('❌ Invalid operation');
-      return;
-  }
-  
-  console.log(`
-┌──────────────────────────┐
-│      CALCULATOR           │
-├──────────────────────────┤
-│  ${num1} ${operation} ${num2} = ${result}
-├──────────────────────────┤
-│  Operation: ${operation.padEnd(14)}│
-│  Result:    ${result.toString().padEnd(14)}│
-└──────────────────────────┘
-  `);
-}
-
-// ─── Test Cases ───
-calculate('+', 10, 20);   // 10 + 20 = 30
-calculate('-', 50, 15);   // 50 - 15 = 35
-calculate('×', 7, 8);     // 7 × 8 = 56
-calculate('÷', 100, 5);   // 100 ÷ 5 = 20
+console.log("Summation:", summation(10, 20));
+console.log("Substraction:", substraction(20, 10));
+console.log("Multiplication:", multiplication(10, 20));
+console.log("Division:", division(20, 10));
 ```
 
 ---
 
-## 📊 Progress Tracker
+## 📊 Module Completion Checklist / মডিউল সমাপ্তি চেকলিস্ট
 
 ```
-Module 01: Foundation      [██████████] 100%
-Module 02: Types           [██████████] 100%
-Module 03: Functions       [██████████] 100%
+[✓] Module 01: Foundation & Setup         / ফাউন্ডেশন ও সেটআপ
+[✓] Module 02: Types & Annotations        / টাইপস ও অ্যানোটেশন
+[✓] Module 03: Functions                  / ফাংশনসমূহ
+
 ─────────────────────────────────────────
-Overall Progress           [██████████] 100%
+[✓] ALL MODULES COMPLETE / সকল মডিউল সম্পন্ন
 ```
-
----
-
-## 🎓 Key Takeaways
-
-| Module | What You Learned |
-|:-------|:-----------------|
-| **01** | Setup TypeScript, configure `tsconfig.json`, compile to JS |
-| **02** | Use primitive & complex types, understand inference |
-| **03** | Write typed functions with optional/default params |
 
 ---
 
@@ -878,9 +458,11 @@ Overall Progress           [██████████] 100%
 ║        fundamentals of TypeScript! 🎉                ║
 ║                                                      ║
 ║     Keep practicing • Build projects • Stay typed    ║
+║     অনুশীলন চালিয়ে যান • প্রজেক্ট বানান • টাইপড থাকুন  ║
 ╚══════════════════════════════════════════════════════╝
 ```
 
 ### ⚡ Happy Coding! / শুভ কোডিং! ⚡
 
 </div>
+```

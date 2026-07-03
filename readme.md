@@ -613,5 +613,10 @@ console.log("Division: ", div);
 
 ---
 
+⚡ *Great job completing Module 03! Practice more to master TypeScript functions!*
+
+```
+
+```
 
 ⚡ _Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!_

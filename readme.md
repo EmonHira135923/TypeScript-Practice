@@ -448,7 +448,6 @@ console.log("Division",div);
 
 ---
 
-```markdown
 # 📘 TypeScript Mastery: Module 03
 
 Welcome to **Module 03** of learning TypeScript! This module focuses entirely on **Functions in TypeScript**, exploring parameter rules, strict return types, arrow functions, and practical calculator implementation.
@@ -609,8 +608,169 @@ console.log("Substraction: ", sub);
 console.log("Multiplication: ", mul);
 console.log("Division: ", div);
 
+---
+
+# 📘 TypeScript Mastery: Module 04
+
+Welcome to **Module 04** of learning TypeScript! This module covers **Object Structure Typing, Type Aliases for Complex Objects, Optional Properties**, and a hands-on project to create a structured **Blog Post System**.
+
+---
+
+## 📌 4.1 Object Structure Typing (অবজেক্ট স্ট্রাকচার টাইপিং)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** Inline object structure typing allows you to define the exact shape (property names and their types) of an object directly during its declaration.
+* **বাংলা:** ইনলাইন অবজেক্ট স্ট্রাকচার টাইপিংয়ের মাধ্যমে একটি অবজেক্টের শেপ (প্রোপার্টির নাম এবং তাদের টাইপ) সরাসরি অবজেক্ট ডিক্লেয়ার করার সময় সুনির্দিষ্ট করে দেওয়া যায়।
+
+### 💻 Code Example:
+
+```typescript
+// Inline Object Structure Typing
+const hello: { name: string; age: number } = {
+  name: "Emon Hossain Hira",
+  age: 23,
+};
+
+console.log(hello);
+
 ```
 
 ---
 
-⚡ _Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!_
+## 📌 4.2 Type Alias for Complex Objects (কমপ্লেক্স অবজেক্টের জন্য টাইপ অ্যালিয়াস)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** A Type Alias (`type`) allows you to create a reusable custom name for a specific object structure, making your code cleaner and avoiding repetition.
+* **বাংলা:** টাইপ অ্যালিয়াস (`type`)-এর মাধ্যমে একটি নির্দিষ্ট অবজেক্টের স্ট্রাকচারকে একটি কাস্টম নাম দিয়ে বারবার ব্যবহার করা যায়। এতে কোড পরিচ্ছন্ন হয় এবং বারবার একই জিনিস লিখতে হয় না।
+
+### 💻 Code Example:
+
+```typescript
+// Reusable Type Alias
+type Person = {
+  name: string;
+  age: number;
+  isStudent: boolean;
+  phone?: number; // Optional property
+};
+
+const user1: Person = {
+  name: "Emon Hossain Hira",
+  age: 23,
+  isStudent: true,
+};
+
+const user2: Person = {
+  name: "Akbor Hossain",
+  age: 22,
+  isStudent: false,
+  phone: 1234567890,
+};
+
+const showUserInfo = (user: Person): void => {
+  console.log(
+    `User Name is ${user.name} and His/Her age is ${user.age} and He/She is a ${user.isStudent ? "Student" : "Not a Student"} and His/Her Phone Number is ${user.phone ? user.phone : "Not Provided"}`
+  );
+};
+
+showUserInfo(user1);
+showUserInfo(user2);
+
+```
+
+---
+
+## 📌 4.3 Optional Properties (ঐচ্ছিক প্রোপার্টি)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** By adding a question mark (`?`) after a property name in a type definition, you make that property optional. The object can be created with or without it.
+* **বাংলা:** টাইপ ডিফাইন করার সময় প্রোপার্টির নামের পাশে একটি প্রশ্নবোধক চিহ্ন (`?`) দিলে সেটি ঐচ্ছিক বা অপশনাল হয়ে যায়। অর্থাৎ অবজেক্ট তৈরি করার সময় ওই প্রোপার্টি না দিলেও কোনো এরর আসে না।
+
+### 💻 Code Example:
+
+```typescript
+type Student = {
+  name: string;
+  age: number;
+  isStudent: boolean;
+  phone?: number; // Optional Property (? means it can be undefined)
+};
+
+const user3: Student = {
+  name: "Emon Hossain Hira",
+  age: 23,
+  isStudent: true, // phone property is skipped here, which is perfectly valid
+};
+
+console.log(user3);
+
+```
+
+---
+
+## 🚀 Project 3: Blog Post System with Custom Types
+
+একটি কাস্টম টাইপ ব্যবহার করে ব্লগ পোস্ট ম্যানেজমেন্ট সিস্টেম তৈরি, যেখানে টাইটেল, কনটেন্ট, লেখক এবং পাবলিশ স্ট্যাটাস হ্যান্ডেল করা হয়েছে।
+
+### 💻 Full Implementation:
+
+```typescript
+// Type definition for a Blog Post
+type BlogPost = {
+  title: string;
+  content: string;
+  author: string;
+  published: boolean;
+  publishedDate?: string; // Optional Property
+};
+
+// Test Data
+const blogPost1: BlogPost = {
+  title: "My First Blog Post",
+  content: "This is the content of my first blog post.",
+  author: "Emon Hossain Hira",
+  published: true,
+  publishedDate: "2023-04-01",
+};
+
+const blogPost2: BlogPost = {
+  title: "My Second Blog Post",
+  content: "This is the content of my second blog post.",
+  author: "Akbor Hossain",
+  published: true,
+};
+
+const blogPost3: BlogPost = {
+  title: "My Third Blog Post",
+  content: "This is the content of my third blog post.",
+  author: "Emon Hossain Hira",
+  published: false,
+  publishedDate: "2023-04-03",
+};
+
+// Function to display blog details based on conditional logic
+const showBlogPost = (post: BlogPost): void => {
+  if (post.publishedDate !== undefined && post.published === true) {
+    console.log(
+      `Blog Post Title: ${post.title} \nContent: ${post.content} \nAuthor: ${post.author} \nPublished: ${post.published} \nPublished Date: ${post.publishedDate}\n`
+    );
+  } else if (post.published === false) {
+    console.log(`❌ "${post.title}" is not published yet. Please publish it first.\n`);
+  } else {
+    console.log(`⚠️ PublishedDate is Required for a Published Blog Post ("${post.title}").\n`);
+  }
+};
+
+// Running the function
+showBlogPost(blogPost1);
+showBlogPost(blogPost2);
+showBlogPost(blogPost3);
+
+```
+
+---
+
+⚡ *Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!*

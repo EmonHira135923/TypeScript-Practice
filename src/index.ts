@@ -159,8 +159,6 @@
 //   return num1 + num2;
 // }
 
-
-
 // let summation = add(10, 20);
 
 // console.log("summation is: ", summation);
@@ -168,7 +166,6 @@
 // const person = (name:string,age:number,isStudent:boolean) :string => {
 //  return `Person is ${name} and His age is now, ${age}. I am now as a ${isStudent}`
 // }
-
 
 // let result = person("Emon Hossain Hira",23,true);
 
@@ -198,3 +195,97 @@
 // console.log("Substraction",sub);
 // console.log("Multiplication",mul);
 // console.log("Division",div);
+
+// Object Type
+
+// Object Data
+
+// const hello: { name: string; age: number } = {
+//   name: "Emon Hossain Hira",
+//   age: 23,
+// };
+
+// console.log(hello);
+
+// type Person = {
+//   name: string;
+//   age: number;
+//   isStudent: boolean;
+//   phone?: number;
+// };
+
+// const user1: Person = {
+//   name: "Emon Hossain Hira",
+//   age: 23,
+//   isStudent: true,
+// };
+
+// const user2: Person = {
+//   name: "Akbor Hossain",
+//   age: 22,
+//   isStudent: false,
+//   phone: 1234567890,
+// };
+
+// const showUserInfo = (user: Person): void => {
+//   console.log(
+//     `User Name is ${user.name} and His/Her age is ${user.age} and He/She is a ${user.isStudent ? "Student" : "Not a Student"} and His/Her Phone Number is ${user.phone ? user.phone : "Not Provided"}`,
+//   );
+// };
+
+// showUserInfo(user1);
+// showUserInfo(user2);
+
+//  Project - 03
+
+// Blog Post
+
+// title,content,author,publised status
+
+// type BlogPost = {
+//     title: string;
+//     content: string;
+//     author: string;
+//     published: boolean;
+//     publishedDate?: string;
+// }
+
+// const blogPost1: BlogPost = {
+//     title: "My First Blog Post",
+//     content: "This is the content of my first blog post.",
+//     author: "Emon Hossain Hira",
+//     published: true,
+//     publishedDate: "2023-04-01"
+// }
+
+// const blogPost2: BlogPost = {
+//     title: "My Second Blog Post",
+//     content: "This is the content of my second blog post.",
+//     author: "Akbor Hossain",
+//     published: true,
+// }
+
+// const blogPost3: BlogPost = {
+//     title: "My Third Blog Post",
+//     content: "This is the content of my third blog post.",
+//     author: "Emon Hossain Hira",
+//     published: false,
+//     publishedDate: "2023-04-03"
+// }
+
+// const showBlogPost = (post:BlogPost) :void => {
+//     if(post.publishedDate!==undefined && post.published===true) {
+//         console.log(`Blog Post Title: ${post.title} \nContent: ${post.content} \nAuthor: ${post.author} \nPublished: ${post.published} \nPublished Date: ${post.publishedDate}`);
+//     }
+//     else if(post.published===false){
+//         console.log(`Published post is not publihed yet. Please Published it first`);
+//     }
+//     else{
+//         console.log(`PublishedDate is Required for Published Blog Post`);
+//     }
+// }
+
+
+// showBlogPost(blogPost1);
+// showBlogPost(blogPost2);
+// showBlogPost(blogPost3);

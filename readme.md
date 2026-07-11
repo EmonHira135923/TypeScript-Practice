@@ -608,9 +608,9 @@ console.log("Substraction: ", sub);
 console.log("Multiplication: ", mul);
 console.log("Division: ", div);
 
----
-
 ```
+
+---
 
 # 📘 TypeScript Mastery: Module 04
 

@@ -610,6 +610,8 @@ console.log("Division: ", div);
 
 ---
 
+```
+
 # 📘 TypeScript Mastery: Module 04
 
 Welcome to **Module 04** of learning TypeScript! This module covers **Object Structure Typing, Type Aliases for Complex Objects, Optional Properties**, and a hands-on project to create a structured **Blog Post System**.

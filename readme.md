@@ -775,4 +775,15 @@ showBlogPost(blogPost3);
 
 ---
 
+# TypeScript Mastery: Module 05
+
+# Interfaces Vs Type Aliases
+# Syntax Comparison
+# Use Cases
+# Extending Interfaces
+
+
+
+
+
 ⚡ *Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!*

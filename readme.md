@@ -444,6 +444,7 @@ console.log("Multiplication",mul);
 console.log("Division",div);
 
 ```
+
 এখানে আপনার **Module 03**-এর জন্য একটি গোছানো এবং প্রফেশনাল **README.md** ফাইল তৈরি করে দেওয়া হলো। আগের মডিউলগুলোর মতো এটিতেও ইংরেজি ও বাংলা উভয় ভাষায় সহজ ডেফিনিশন এবং আপনার দেওয়া কোডগুলো সুন্দরভাবে বিন্যাস করা হয়েছে।
 
 ---
@@ -457,17 +458,18 @@ Welcome to **Module 03** of learning TypeScript! This module focuses entirely on
 ## 📌 3.1 Function Types (ফাংশন টাইপস)
 
 ### 📖 Definition / সংজ্ঞা:
-*   **English:** Function typing allows us to explicitly define the data types of the parameters a function accepts and the type of value it returns.
-*   **বাংলা:** ফাংশন টাইপিংয়ের মাধ্যমে একটি ফাংশন প্যারামিটার হিসেবে কী ধরণের ডেটা গ্রহণ করবে এবং কাজ শেষে কী ধরণের ডেটা রিটার্ন করবে তা নির্দিষ্ট করে দেওয়া হয়।
+
+- **English:** Function typing allows us to explicitly define the data types of the parameters a function accepts and the type of value it returns.
+- **বাংলা:** ফাংশন টাইপিংয়ের মাধ্যমে একটি ফাংশন প্যারামিটার হিসেবে কী ধরণের ডেটা গ্রহণ করবে এবং কাজ শেষে কী ধরণের ডেটা রিটার্ন করবে তা নির্দিষ্ট করে দেওয়া হয়।
 
 ### 💻 Code Example:
+
 ```typescript
 function happy(smile: string): string {
-   return `Yes I am ${smile}`;
+  return `Yes I am ${smile}`;
 }
 
 console.log(happy("happy"));
-
 ```
 
 ---
@@ -476,16 +478,13 @@ console.log(happy("happy"));
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **Optional Parameters (`?`):**
-* *English:* Allows a parameter to be skipped when calling the function. It becomes `undefined` if not provided.
-* *বাংলা:* কোনো প্যারামিটারকে ঐচ্ছিক করার জন্য `?` ব্যবহার করা হয়। ভ্যালু না দিলে এটি `undefined` হিসেবে গণ্য হয়।
+- **Optional Parameters (`?`):**
+- _English:_ Allows a parameter to be skipped when calling the function. It becomes `undefined` if not provided.
+- _বাংলা:_ কোনো প্যারামিটারকে ঐচ্ছিক করার জন্য `?` ব্যবহার করা হয়। ভ্যালু না দিলে এটি `undefined` হিসেবে গণ্য হয়।
 
-
-* **Default Parameters (`=`):**
-* *English:* Assigns a fallback value to a parameter if no value or `undefined` is passed during the function call.
-* *বাংলা:* ফাংশন কল করার সময় কোনো প্যারামিটারের ভ্যালু না দেওয়া হলে আগে থেকে সেট করে রাখা একটি ডিফল্ট ভ্যালু কাজ করে।
-
-
+- **Default Parameters (`=`):**
+- _English:_ Assigns a fallback value to a parameter if no value or `undefined` is passed during the function call.
+- _বাংলা:_ ফাংশন কল করার সময় কোনো প্যারামিটারের ভ্যালু না দেওয়া হলে আগে থেকে সেট করে রাখা একটি ডিফল্ট ভ্যালু কাজ করে।
 
 ### 💻 Code Example:
 
@@ -505,9 +504,9 @@ let travelInfo1 = travel("Dhaka", "Chittagong", "5 Hours");
 console.log("TravelInformation: ", travelInfo);
 console.log("TravelInformation: ", travelInfo1);
 
-
 // --- Default Parameters ---
-function User(name: string = "Guest"): string { // Default value is "Guest"
+function User(name: string = "Guest"): string {
+  // Default value is "Guest"
   return `User Name is ${name}`;
 }
 
@@ -516,7 +515,6 @@ let userInfo1 = User("Emon Hossain Hira");
 
 console.log("UserInfo: ", userInfo);
 console.log("UserInfo: ", userInfo1);
-
 ```
 
 ---
@@ -525,8 +523,8 @@ console.log("UserInfo: ", userInfo1);
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **Return Type:** Explicitly declares what type of data a function will return (e.g., `number`, `string`). / ফাংশনটি কী ধরণের ডেটা ফেরত পাঠাবে তা নির্ধারণ করে।
-* **`never` Type:** Represents a value that *never* occurs. It is used for functions that continuously loop or always throw an exception/error, meaning they never finish successfully. / এমন ফাংশনে ব্যবহৃত হয় যা কখনো স্বাভাবিকভাবে শেষ হয় না (যেমন: সবসময় এরর থ্রো করে বা ইনফিনিট লুপে চলে)।
+- **Return Type:** Explicitly declares what type of data a function will return (e.g., `number`, `string`). / ফাংশনটি কী ধরণের ডেটা ফেরত পাঠাবে তা নির্ধারণ করে।
+- **`never` Type:** Represents a value that _never_ occurs. It is used for functions that continuously loop or always throw an exception/error, meaning they never finish successfully. / এমন ফাংশনে ব্যবহৃত হয় যা কখনো স্বাভাবিকভাবে শেষ হয় না (যেমন: সবসময় এরর থ্রো করে বা ইনফিনিট লুপে চলে)।
 
 ### 💻 Code Example:
 
@@ -539,14 +537,12 @@ function add(num1: number, num2: number): number {
 let summationValue = add(10, 20);
 console.log("summation is: ", summationValue);
 
-
 // never Type Example
 function error(): never {
   throw new Error("Message is Wrong"); // Function terminates unexpectedly
 }
 
 // error(); // Uncomment to test (will crash execution intentionally)
-
 ```
 
 ---
@@ -555,8 +551,8 @@ function error(): never {
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** Arrow functions provide a concise syntax for writing function expressions. In TypeScript, type annotations are applied directly to the parameters and return value.
-* **বাংলা:** অ্যারো ফাংশন হলো ফাংশন লেখার একটি আধুনিক ও সংক্ষিপ্ত রূপ। টাইপস্ক্রিপ্টে এর প্যারামিটার এবং রিটার্ন টাইপ সরাসরি ব্র্যাকেটের ভেতরেই ডিফাইন করা হয়।
+- **English:** Arrow functions provide a concise syntax for writing function expressions. In TypeScript, type annotations are applied directly to the parameters and return value.
+- **বাংলা:** অ্যারো ফাংশন হলো ফাংশন লেখার একটি আধুনিক ও সংক্ষিপ্ত রূপ। টাইপস্ক্রিপ্টে এর প্যারামিটার এবং রিটার্ন টাইপ সরাসরি ব্র্যাকেটের ভেতরেই ডিফাইন করা হয়।
 
 ### 💻 Code Example:
 
@@ -567,7 +563,6 @@ const person = (name: string, age: number, isStudent: boolean): string => {
 
 let result = person("Emon Hossain Hira", 23, true);
 console.log(result);
-
 ```
 
 ---
@@ -607,7 +602,6 @@ console.log("Summation: ", sum);
 console.log("Substraction: ", sub);
 console.log("Multiplication: ", mul);
 console.log("Division: ", div);
-
 ```
 
 ---
@@ -622,8 +616,8 @@ Welcome to **Module 04** of learning TypeScript! This module covers **Object Str
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** Inline object structure typing allows you to define the exact shape (property names and their types) of an object directly during its declaration.
-* **বাংলা:** ইনলাইন অবজেক্ট স্ট্রাকচার টাইপিংয়ের মাধ্যমে একটি অবজেক্টের শেপ (প্রোপার্টির নাম এবং তাদের টাইপ) সরাসরি অবজেক্ট ডিক্লেয়ার করার সময় সুনির্দিষ্ট করে দেওয়া যায়।
+- **English:** Inline object structure typing allows you to define the exact shape (property names and their types) of an object directly during its declaration.
+- **বাংলা:** ইনলাইন অবজেক্ট স্ট্রাকচার টাইপিংয়ের মাধ্যমে একটি অবজেক্টের শেপ (প্রোপার্টির নাম এবং তাদের টাইপ) সরাসরি অবজেক্ট ডিক্লেয়ার করার সময় সুনির্দিষ্ট করে দেওয়া যায়।
 
 ### 💻 Code Example:
 
@@ -635,7 +629,6 @@ const hello: { name: string; age: number } = {
 };
 
 console.log(hello);
-
 ```
 
 ---
@@ -644,8 +637,8 @@ console.log(hello);
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** A Type Alias (`type`) allows you to create a reusable custom name for a specific object structure, making your code cleaner and avoiding repetition.
-* **বাংলা:** টাইপ অ্যালিয়াস (`type`)-এর মাধ্যমে একটি নির্দিষ্ট অবজেক্টের স্ট্রাকচারকে একটি কাস্টম নাম দিয়ে বারবার ব্যবহার করা যায়। এতে কোড পরিচ্ছন্ন হয় এবং বারবার একই জিনিস লিখতে হয় না।
+- **English:** A Type Alias (`type`) allows you to create a reusable custom name for a specific object structure, making your code cleaner and avoiding repetition.
+- **বাংলা:** টাইপ অ্যালিয়াস (`type`)-এর মাধ্যমে একটি নির্দিষ্ট অবজেক্টের স্ট্রাকচারকে একটি কাস্টম নাম দিয়ে বারবার ব্যবহার করা যায়। এতে কোড পরিচ্ছন্ন হয় এবং বারবার একই জিনিস লিখতে হয় না।
 
 ### 💻 Code Example:
 
@@ -673,13 +666,12 @@ const user2: Person = {
 
 const showUserInfo = (user: Person): void => {
   console.log(
-    `User Name is ${user.name} and His/Her age is ${user.age} and He/She is a ${user.isStudent ? "Student" : "Not a Student"} and His/Her Phone Number is ${user.phone ? user.phone : "Not Provided"}`
+    `User Name is ${user.name} and His/Her age is ${user.age} and He/She is a ${user.isStudent ? "Student" : "Not a Student"} and His/Her Phone Number is ${user.phone ? user.phone : "Not Provided"}`,
   );
 };
 
 showUserInfo(user1);
 showUserInfo(user2);
-
 ```
 
 ---
@@ -688,8 +680,8 @@ showUserInfo(user2);
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** By adding a question mark (`?`) after a property name in a type definition, you make that property optional. The object can be created with or without it.
-* **বাংলা:** টাইপ ডিফাইন করার সময় প্রোপার্টির নামের পাশে একটি প্রশ্নবোধক চিহ্ন (`?`) দিলে সেটি ঐচ্ছিক বা অপশনাল হয়ে যায়। অর্থাৎ অবজেক্ট তৈরি করার সময় ওই প্রোপার্টি না দিলেও কোনো এরর আসে না।
+- **English:** By adding a question mark (`?`) after a property name in a type definition, you make that property optional. The object can be created with or without it.
+- **বাংলা:** টাইপ ডিফাইন করার সময় প্রোপার্টির নামের পাশে একটি প্রশ্নবোধক চিহ্ন (`?`) দিলে সেটি ঐচ্ছিক বা অপশনাল হয়ে যায়। অর্থাৎ অবজেক্ট তৈরি করার সময় ওই প্রোপার্টি না দিলেও কোনো এরর আসে না।
 
 ### 💻 Code Example:
 
@@ -708,7 +700,6 @@ const user3: Student = {
 };
 
 console.log(user3);
-
 ```
 
 ---
@@ -757,12 +748,16 @@ const blogPost3: BlogPost = {
 const showBlogPost = (post: BlogPost): void => {
   if (post.publishedDate !== undefined && post.published === true) {
     console.log(
-      `Blog Post Title: ${post.title} \nContent: ${post.content} \nAuthor: ${post.author} \nPublished: ${post.published} \nPublished Date: ${post.publishedDate}\n`
+      `Blog Post Title: ${post.title} \nContent: ${post.content} \nAuthor: ${post.author} \nPublished: ${post.published} \nPublished Date: ${post.publishedDate}\n`,
     );
   } else if (post.published === false) {
-    console.log(`❌ "${post.title}" is not published yet. Please publish it first.\n`);
+    console.log(
+      `❌ "${post.title}" is not published yet. Please publish it first.\n`,
+    );
   } else {
-    console.log(`⚠️ PublishedDate is Required for a Published Blog Post ("${post.title}").\n`);
+    console.log(
+      `⚠️ PublishedDate is Required for a Published Blog Post ("${post.title}").\n`,
+    );
   }
 };
 
@@ -770,7 +765,6 @@ const showBlogPost = (post: BlogPost): void => {
 showBlogPost(blogPost1);
 showBlogPost(blogPost2);
 showBlogPost(blogPost3);
-
 ```
 
 ---
@@ -785,16 +779,13 @@ Welcome to **Module 05** of learning TypeScript! This module covers the core con
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **Type Alias (`type`):**
-* *English:* Used to declare custom types for primitives, unions, tuples, and object shapes. It acts as a shortcut name for any valid type configuration.
-* *বাংলা:* এটি প্রিমিটিভ, ইউনিয়ন, টাপল এবং অবজেক্ট শেপের জন্য কাস্টম টাইপ ডিক্লেয়ার করতে ব্যবহৃত হয়। এটি যেকোনো ভ্যালিড টাইপ কনফিগারেশনের একটি শর্টকাট বা ডাকনাম হিসেবে কাজ করে।
+- **Type Alias (`type`):**
+- _English:_ Used to declare custom types for primitives, unions, tuples, and object shapes. It acts as a shortcut name for any valid type configuration.
+- _বাংলা:_ এটি প্রিমিটিভ, ইউনিয়ন, টাপল এবং অবজেক্ট শেপের জন্য কাস্টম টাইপ ডিক্লেয়ার করতে ব্যবহৃত হয়। এটি যেকোনো ভ্যালিড টাইপ কনফিগারেশনের একটি শর্টকাট বা ডাকনাম হিসেবে কাজ করে।
 
-
-* **Interface (`interface`):**
-* *English:* Exclusively used to define the structure/shape of object data and classes. It focuses heavily on Object-Oriented Programming (OOP) architectures.
-* *বাংলা:* এটি শুধুমাত্র অবজেক্টের স্ট্রাকচার বা শেপ এবং ক্লাস ডিফাইন করতে ব্যবহৃত হয়। অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং (OOP) আর্কিটেকচারে ইন্টারফেস সবচেয়ে বেশি ব্যবহৃত হয়।
-
-
+- **Interface (`interface`):**
+- _English:_ Exclusively used to define the structure/shape of object data and classes. It focuses heavily on Object-Oriented Programming (OOP) architectures.
+- _বাংলা:_ এটি শুধুমাত্র অবজেক্টের স্ট্রাকচার বা শেপ এবং ক্লাস ডিফাইন করতে ব্যবহৃত হয়। অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং (OOP) আর্কিটেকচারে ইন্টারফেস সবচেয়ে বেশি ব্যবহৃত হয়।
 
 ---
 
@@ -802,8 +793,8 @@ Welcome to **Module 05** of learning TypeScript! This module covers the core con
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **Syntax & Extensions:** Interfaces extend other interfaces using the `extends` keyword, while Type Aliases merge shapes using intersections (`&`).
-* **Use Cases:** Use `interface` when defining object blueprints, API responses, or writing extendable libraries. Use `type` for simple objects, union types (like status states), or complex custom combinations.
+- **Syntax & Extensions:** Interfaces extend other interfaces using the `extends` keyword, while Type Aliases merge shapes using intersections (`&`).
+- **Use Cases:** Use `interface` when defining object blueprints, API responses, or writing extendable libraries. Use `type` for simple objects, union types (like status states), or complex custom combinations.
 
 ### 💻 Code Example:
 
@@ -835,7 +826,6 @@ const basicData: Data = {
   dataNumber: 100,
   isvalid: true,
 };
-
 ```
 
 ---
@@ -844,8 +834,8 @@ const basicData: Data = {
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** Inheritance in interfaces is achieved via the `extends` keyword. This allows a child interface to inherit all properties from a parent interface while adding its own custom properties.
-* **বাংলা:** ইন্টারফেসে ইনহেরিট্যান্স করার জন্য `extends` কিওয়ার্ড ব্যবহার করা হয়। এর মাধ্যমে একটি চাইল্ড ইন্টারফেস তার পেরেন্ট ইন্টারফেসের সকল প্রোপার্টি নিজে থেকেই পেয়ে যায় এবং চাইলে নতুন প্রোপার্টিও যুক্ত করতে পারে।
+- **English:** Inheritance in interfaces is achieved via the `extends` keyword. This allows a child interface to inherit all properties from a parent interface while adding its own custom properties.
+- **বাংলা:** ইন্টারফেসে ইনহেরিট্যান্স করার জন্য `extends` কিওয়ার্ড ব্যবহার করা হয়। এর মাধ্যমে একটি চাইল্ড ইন্টারফেস তার পেরেন্ট ইন্টারফেসের সকল প্রোপার্টি নিজে থেকেই পেয়ে যায় এবং চাইলে নতুন প্রোপার্টিও যুক্ত করতে পারে।
 
 ### 💻 Code Example:
 
@@ -870,7 +860,6 @@ const ChildAData: DataChild = {
 };
 
 console.log("Extended Interface Data:", ChildAData);
-
 ```
 
 ---
@@ -924,9 +913,140 @@ const showUserData = (user: Author, status: Status): void => {
 
 // Execution / রান করা
 showUserData(firstUser, firstUserStatus);
+```
+
+---
+
+# 📘 TypeScript Mastery: Module 06
+
+Welcome to **Module 06** of learning TypeScript! This module covers **Union & Intersection Types**, **Literal Types**, and the most powerful tool for logic handling: **Type Narrowing** and **Custom Type Guards**.
+
+---
+
+## 📌 6.1 Union, Intersection, and Literal Types
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Union Types (`|`):** Allows a variable to hold one of several types (e.g., `string | number`).
+* **Intersection Types (`&`):** Combines multiple types into one, requiring the variable to satisfy all combined types.
+* **Literal Types:** Restricts a variable to hold only specific values (e.g., `"YES" | "NO"`).
+
+### 💻 Code Example:
+
+```typescript
+// Union Types
+type User = { email: string; name: string; rollNo: string | number };
+
+// Intersection Types
+type User2 = { email: string; name: string };
+type User4 = { rollNo: string | number };
+type User3 = User2 & User4; // Combines both types
+
+// Literal Types
+type Status = "YES" | "NO";
+
+const user3: User3 = { email: "emon@gmail.com", name: "emon", rollNo: "189" };
+const user3Status: Status = "YES";
+
+const showData = (user: User3, status: Status): void => {
+  console.log(`User: ${user.name}, Roll: ${user.rollNo}, Status: ${status}`);
+};
 
 ```
 
 ---
 
-⚡ *Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!*
+## 📌 6.2 Type Narrowing (টাইপ ন্যারোয়িং)
+
+### 📖 Definition / সংজ্ঞা:
+
+টাইপ ন্যারোয়িং হলো এমন একটি প্রক্রিয়া যার মাধ্যমে আমরা বিভিন্ন শর্ত ব্যবহার করে একটি সাধারণ টাইপকে (যেমন `string | number`) সুনির্দিষ্ট টাইপে রূপান্তর করি যাতে নির্দিষ্ট মেথড ব্যবহার করা নিরাপদ হয়।
+
+#### 1. Using `typeof`
+
+প্রাথমিক টাইপ (primitive types) চেক করার জন্য এটি ব্যবহৃত হয়।
+
+```typescript
+type Product = { data: string | number };
+
+const showData = (Data: Product): void => {
+  if (typeof Data.data === "number") {
+    console.log(Data.data * 2); // Safe to use math
+  } else {
+    console.log(Data.data.trim()); // Safe to use string methods
+  }
+};
+
+```
+
+#### 2. Using `in` Operator
+
+অবজেক্টের ভেতর নির্দিষ্ট কোনো প্রোপার্টি আছে কি না তা যাচাই করতে `in` অপারেটর ব্যবহার করা হয়।
+
+```typescript
+type Car = { Bus: string };
+type Cycle = { Cycle: string };
+
+const showVehicle = (vehicle: Car | Cycle): void => {
+  if ("Bus" in vehicle) {
+    console.log("Yes, It's a Bus");
+  } else {
+    console.log("No, It's a Cycle");
+  }
+};
+
+```
+
+#### 3. Using `instanceof`
+
+কোনো অবজেক্ট নির্দিষ্ট কোনো ক্লাসের কি না, তা যাচাই করতে `instanceof` ব্যবহার করা হয়।
+
+```typescript
+class House { hello() { console.log("Welcome to House"); } }
+class NoHouse { hello() { console.log("No House here"); } }
+
+const showHouse = (sound: House | NoHouse) => {
+  if (sound instanceof House) {
+    sound.hello();
+  } else {
+    sound.hello();
+  }
+};
+
+```
+
+---
+
+## 📌 6.3 Custom Type Guards (কাস্টম টাইপ গার্ডস)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** Custom type guards are functions that return a type predicate (e.g., `profile is Admin`). They are useful when you have complex logic that `typeof` or `instanceof` cannot handle directly.
+* **বাংলা:** যখন জটিল লজিকের কারণে সাধারণ টাইপ চেক করা কঠিন হয়, তখন আমরা কাস্টম ফাংশন তৈরি করি যা টাইপ চেক করে নিশ্চিত করে (যেমন: `profile is Admin`)। একেই কাস্টম টাইপ গার্ড বলে।
+
+### 💻 Code Example:
+
+```typescript
+type User = { name: string; role: "user" };
+type Admin = { name: string; role: "admin"; permissions: string[] };
+
+// Custom Type Guard
+const isAdmin = (profile: User | Admin): profile is Admin => {
+  return profile.role === "admin" && "permissions" in profile;
+};
+
+const handleLogin = (profile: User | Admin) => {
+  if (isAdmin(profile)) {
+    // TypeScript now knows 'profile' is definitely an Admin
+    console.log(`Welcome Admin! Permissions: ${profile.permissions.length}`);
+  } else {
+    // TypeScript knows it is a User
+    console.log(`Welcome User ${profile.name}!`);
+  }
+};
+
+```
+
+---
+
+⚡ _Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!_

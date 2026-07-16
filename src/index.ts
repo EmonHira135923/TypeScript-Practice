@@ -294,73 +294,281 @@
 // # Use Cases
 // # Extending Interfaces
 
-type User = {
-  name: string;
-  age: number;
-  isStudent: boolean;
-};
+// type User = {
+//   name: string;
+//   age: number;
+//   isStudent: boolean;
+// };
 
-const Emon: User = {
-  name: "Emon Hossain Hira",
-  age: 23,
-  isStudent: true,
-};
+// const Emon: User = {
+//   name: "Emon Hossain Hira",
+//   age: 23,
+//   isStudent: true,
+// };
 
-console.log(Emon);
+// console.log(Emon);
 
-interface Data  {
-    dataName:string;
-    dataNumber:number;
-    isvalid:boolean;
-}
+// interface Data  {
+//     dataName:string;
+//     dataNumber:number;
+//     isvalid:boolean;
+// }
 
-interface DataChild extends Data {
-    dataActive: boolean
-}
+// interface DataChild extends Data {
+//     dataActive: boolean
+// }
 
-const ChildAData:DataChild = {
-    dataName: "Info-ICT",
-    dataNumber: 25,
-    isvalid: true,
-    dataActive:true
-}
+// const ChildAData:DataChild = {
+//     dataName: "Info-ICT",
+//     dataNumber: 25,
+//     isvalid: true,
+//     dataActive:true
+// }
 
-console.log(ChildAData);
-
-
+// console.log(ChildAData);
 
 // # User Profile System
 //  ## user ---> username,age,phone,email author ---> bio,post status ----> type ---> check
 
-interface AllUser {
-    username:string;
-    age:number;
-    phone:string;
-    email:string
-}
+// interface AllUser {
+//     username:string;
+//     age:number;
+//     phone:string;
+//     email:string
+// }
 
-interface author extends AllUser {
-    bio:string;
-    post: string[];
-}
+// interface author extends AllUser {
+//     bio:string;
+//     post: string[];
+// }
 
-type Status = "active" | "inactive" | "banned";
+// type Status = "active" | "inactive" | "banned";
 
+// const firstUser:author = {
+//     username: "Emon Hossain Hira",
+//     age: 23,
+//     phone: "01817516654",
+//     email: "emonhossainhira231@gmail.com",
+//     bio:"Time and Wait For None",
+//     post: ["blog1","post1","blog2"]
+// }
 
-const firstUser:author = {
-    username: "Emon Hossain Hira",
-    age: 23,
-    phone: "01817516654",
-    email: "emonhossainhira231@gmail.com",
-    bio:"Time and Wait For None",
-    post: ["blog1","post1","blog2"]
-}
+// const firstUserStaus:Status = "active";
 
-const firstUserStaus:Status = "active";
+// const showUserData = (user:author,status:Status) :void => {
+//     console.log("user of first",user,status);
+// }
 
-const showUserData = (user:author,status:Status) :void => {
-    console.log("user of first",user,status);
-}
+// showUserData(firstUser,firstUserStaus);
 
-showUserData(firstUser,firstUserStaus);
+//  Union and Intersection Types
+//  Literal Types
+//  Type Narrowing
+//  Type Guide
 
+// Union Types
+
+// type User = {
+//     email: string;
+//     name: string;
+//     rollNo: string | number;
+// }
+
+// const user1:User = {
+//     email:"emonhossainhira231@gmail.com",
+//     name:"emonhossainhira",
+//     rollNo:"189123"
+// }
+
+// const user2:User = {
+//     email:"hira123@gmail.com",
+//     name:"hira",
+//     rollNo:115665
+// }
+
+// console.log("user1: ",user1,"user2: ",user2);
+
+// Intersection Types
+
+// type User2 = {
+//     email: string;
+//     name: string;
+// }
+
+// type User4 = {
+//     rollNo: string | number;
+// }
+
+// type User3 = User2 & User4;
+
+// const user3:User3 = {
+//     email:"emonhossainhira231@gmail.com",
+//     name:"emonhossainhira",
+//     rollNo:"1897123"
+// }
+
+// const user4:User3 = {
+//     email:"hira123@gmail.com",
+//     name:"hira",
+//     rollNo:1156659
+// }
+
+// console.log("user3: ",user3,"user4: ",user4);
+
+// // Literal Types
+
+// type status = "YES" | "NO";
+
+// const user3Status:status = "YES";
+// const user4Status:status = "NO";
+
+// const showData = (user:User3,status:status) :void =>{
+//     console.log(`User Name is ${user.name} and His Email is ${user.email} and His roll no is ${user.rollNo}.And, He is a Student and it's ${status}`)
+// }
+
+// showData(user3,user3Status);
+// showData(user4,user4Status);
+
+// Type Narrowing
+// type Product = {
+//     data : string | number;
+// }
+
+// const product1:Product = {
+//     data:"  Hello Product  "
+// }
+
+// const product2:Product = {
+//     data:500
+// }
+
+// const showData = (Data:Product) :void => {
+//     if(typeof Data.data === "number"){
+//         console.log(Data.data*2);
+//     }
+//     else{
+//         console.log(Data.data.trim());
+//     }
+// }
+
+// showData(product1);
+// showData(product2);
+
+// Type of Guard
+
+// type of
+
+// type Product = {
+//   data: string | number;
+// };
+
+// const product1: Product = {
+//   data: "  Hello Product  ",
+// };
+
+// const product2: Product = {
+//   data: 500,
+// };
+
+// const showData = (Data: Product): void => {
+//   if (typeof Data.data === "number") {
+//     console.log(Data.data * 2);
+//   } else {
+//     console.log(Data.data.trim());
+//   }
+// };
+
+// showData(product1);
+// showData(product2);
+
+// in opreator
+
+// type Car = {
+//     Bus: string;
+// }
+
+// type Car1 = {
+//     Cycle: string;
+// }
+
+// const car:Car = {
+//     Bus: "Jamuna Bus",
+// }
+
+// const cycle:Car1 = {
+//     Cycle:"Duronto"
+// }
+
+// const showyourCar = (vehicle:Car | Car1) : void => {
+//     if("Bus" in vehicle){
+//         console.log("Yes,It's Bus");
+//     }
+//     else{
+//         console.log("No,It's Cycle");
+//     }
+// }
+
+// showyourCar(car);
+// showyourCar(cycle);
+
+// instance of
+
+// class House {
+//   hello() {
+//     console.log("Anyone in this home");
+//   }
+// }
+
+// class NoHouse {
+//   hello() {
+//     console.log("When they are come");
+//   }
+// }
+
+// const emon = new House();
+// const noemon = new NoHouse();
+
+// const showDataofClass = (sound: House | NoHouse) => {
+//     if(sound instanceof House){
+//         sound.hello();
+//     }
+//     else{
+//         sound.hello();
+//     }
+// };
+
+// showDataofClass(emon);
+// showDataofClass(noemon);
+
+// Custom Type Gurads
+
+type User = {
+    name: string;
+    role: "user";
+};
+
+type Admin = {
+    name: string;
+    role: "admin";
+    permissions: string[];
+};
+
+// 1. Define the Custom Type Guards
+const isAdmin = (profile: User | Admin): profile is Admin => {
+    return profile.role === "admin" && "permissions" in profile;
+};
+
+const isUser = (profile: User | Admin): profile is User => {
+    return profile.role === "user";
+};
+
+// 2. Use them in your application logic
+const handleLogin = (profile: User | Admin) => {
+    if (isAdmin(profile)) {
+        // TypeScript now completely trusts that 'profile' is an Admin
+        console.log(`Welcome Admin! You have ${profile.permissions.length} permissions.`);
+    } else if (isUser(profile)) {
+        // TypeScript safely narrows 'profile' to a regular User here
+        console.log(`Welcome User ${profile.name}!`);
+    }
+};

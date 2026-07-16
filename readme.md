@@ -775,15 +775,158 @@ showBlogPost(blogPost3);
 
 ---
 
-# TypeScript Mastery: Module 05
+# 📘 TypeScript Mastery: Module 05
 
-# Interfaces Vs Type Aliases
-# Syntax Comparison
-# Use Cases
-# Extending Interfaces
+Welcome to **Module 05** of learning TypeScript! This module covers the core concepts of **Interfaces vs. Type Aliases**, their **Syntax Comparison**, **Use Cases**, **Extending Interfaces**, and a hands-on project to build an advanced **User Profile System**.
+
+---
+
+## 📌 5.1 Interfaces Vs Type Aliases
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Type Alias (`type`):**
+* *English:* Used to declare custom types for primitives, unions, tuples, and object shapes. It acts as a shortcut name for any valid type configuration.
+* *বাংলা:* এটি প্রিমিটিভ, ইউনিয়ন, টাপল এবং অবজেক্ট শেপের জন্য কাস্টম টাইপ ডিক্লেয়ার করতে ব্যবহৃত হয়। এটি যেকোনো ভ্যালিড টাইপ কনফিগারেশনের একটি শর্টকাট বা ডাকনাম হিসেবে কাজ করে।
+
+
+* **Interface (`interface`):**
+* *English:* Exclusively used to define the structure/shape of object data and classes. It focuses heavily on Object-Oriented Programming (OOP) architectures.
+* *বাংলা:* এটি শুধুমাত্র অবজেক্টের স্ট্রাকচার বা শেপ এবং ক্লাস ডিফাইন করতে ব্যবহৃত হয়। অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং (OOP) আর্কিটেকচারে ইন্টারফেস সবচেয়ে বেশি ব্যবহৃত হয়।
 
 
 
+---
 
+## 📌 5.2 Syntax Comparison & Use Cases
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Syntax & Extensions:** Interfaces extend other interfaces using the `extends` keyword, while Type Aliases merge shapes using intersections (`&`).
+* **Use Cases:** Use `interface` when defining object blueprints, API responses, or writing extendable libraries. Use `type` for simple objects, union types (like status states), or complex custom combinations.
+
+### 💻 Code Example:
+
+```typescript
+// --- Type Alias Example ---
+type User = {
+  name: string;
+  age: number;
+  isStudent: boolean;
+};
+
+const Emon: User = {
+  name: "Emon Hossain Hira",
+  age: 23,
+  isStudent: true,
+};
+
+console.log("Type Alias User:", Emon);
+
+// --- Interface Example ---
+interface Data {
+  dataName: string;
+  dataNumber: number;
+  isvalid: boolean;
+}
+
+const basicData: Data = {
+  dataName: "Base Config",
+  dataNumber: 100,
+  isvalid: true,
+};
+
+```
+
+---
+
+## 📌 5.3 Extending Interfaces (ইন্টারফেস এক্সটেন্ড করা)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** Inheritance in interfaces is achieved via the `extends` keyword. This allows a child interface to inherit all properties from a parent interface while adding its own custom properties.
+* **বাংলা:** ইন্টারফেসে ইনহেরিট্যান্স করার জন্য `extends` কিওয়ার্ড ব্যবহার করা হয়। এর মাধ্যমে একটি চাইল্ড ইন্টারফেস তার পেরেন্ট ইন্টারফেসের সকল প্রোপার্টি নিজে থেকেই পেয়ে যায় এবং চাইলে নতুন প্রোপার্টিও যুক্ত করতে পারে।
+
+### 💻 Code Example:
+
+```typescript
+// Parent Interface
+interface Data {
+  dataName: string;
+  dataNumber: number;
+  isvalid: boolean;
+}
+
+// Child Interface extending the Parent Interface
+interface DataChild extends Data {
+  dataActive: boolean;
+}
+
+const ChildAData: DataChild = {
+  dataName: "Info-ICT",
+  dataNumber: 25,
+  isvalid: true,
+  dataActive: true, // New property from DataChild
+};
+
+console.log("Extended Interface Data:", ChildAData);
+
+```
+
+---
+
+## 🚀 Project 4: Advanced User Profile & Author System
+
+এখানে আমরা ইন্টারফেসের `extends` বৈশিষ্ট্য এবং টাইপ অ্যালিয়াসের `Union Type` ব্যবহার করে একটি প্রফেশনাল ইউজার এবং অথর প্রোফাইল সিস্টেম ডিজাইন করেছি।
+
+### 💻 Full Implementation:
+
+```typescript
+// Base Interface for all users
+interface AllUser {
+  username: string;
+  age: number;
+  phone: string;
+  email: string;
+}
+
+// Extending AllUser to create a specialized Author profile
+interface Author extends AllUser {
+  bio: string;
+  post: string[];
+}
+
+// Type Alias using Union to restrict specific system states
+type Status = "active" | "inactive" | "banned";
+
+// Creating profile data based on the Author interface
+const firstUser: Author = {
+  username: "Emon Hossain Hira",
+  age: 23,
+  phone: "01817516654",
+  email: "emonhossainhira231@gmail.com",
+  bio: "Time and Tide Wait For None",
+  post: ["blog1", "post1", "blog2"],
+};
+
+// Setting the user status using the strict Status Union Type
+const firstUserStatus: Status = "active";
+
+// Function to process and display user information safely
+const showUserData = (user: Author, status: Status): void => {
+  console.log("\n--- User Profile Data ---");
+  console.log(`User: ${user.username}`);
+  console.log(`Status: ${status.toUpperCase()}`);
+  console.log(`Bio: "${user.bio}"`);
+  console.log(`Total Posts: ${user.post.length}`);
+  console.log("Full Object Data:", user);
+};
+
+// Execution / রান করা
+showUserData(firstUser, firstUserStatus);
+
+```
+
+---
 
 ⚡ *Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!*

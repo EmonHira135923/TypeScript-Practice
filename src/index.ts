@@ -285,9 +285,82 @@
 //     }
 // }
 
-
 // showBlogPost(blogPost1);
 // showBlogPost(blogPost2);
 // showBlogPost(blogPost3);
 
+// # Interfaces Vs Type Aliases
+// # Syntax Comparison
+// # Use Cases
+// # Extending Interfaces
+
+type User = {
+  name: string;
+  age: number;
+  isStudent: boolean;
+};
+
+const Emon: User = {
+  name: "Emon Hossain Hira",
+  age: 23,
+  isStudent: true,
+};
+
+console.log(Emon);
+
+interface Data  {
+    dataName:string;
+    dataNumber:number;
+    isvalid:boolean;
+}
+
+interface DataChild extends Data {
+    dataActive: boolean
+}
+
+const ChildAData:DataChild = {
+    dataName: "Info-ICT",
+    dataNumber: 25,
+    isvalid: true,
+    dataActive:true
+}
+
+console.log(ChildAData);
+
+
+
+// # User Profile System
+//  ## user ---> username,age,phone,email author ---> bio,post status ----> type ---> check
+
+interface AllUser {
+    username:string;
+    age:number;
+    phone:string;
+    email:string
+}
+
+interface author extends AllUser {
+    bio:string;
+    post: string[];
+}
+
+type Status = "active" | "inactive" | "banned";
+
+
+const firstUser:author = {
+    username: "Emon Hossain Hira",
+    age: 23,
+    phone: "01817516654",
+    email: "emonhossainhira231@gmail.com",
+    bio:"Time and Wait For None",
+    post: ["blog1","post1","blog2"]
+}
+
+const firstUserStaus:Status = "active";
+
+const showUserData = (user:author,status:Status) :void => {
+    console.log("user of first",user,status);
+}
+
+showUserData(firstUser,firstUserStaus);
 

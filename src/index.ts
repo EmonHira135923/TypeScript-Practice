@@ -614,7 +614,6 @@
 
 // };
 
-
 // const firstuserProduct = new Product("Punjabi",5000,["M","L","XL","XXL"]);
 
 // firstuserProduct.showProductData();
@@ -638,7 +637,7 @@
 
 // }
 
-// const EmonBooks = new Books("Vector-Calculas","Unknown-Person",500); 
+// const EmonBooks = new Books("Vector-Calculas","Unknown-Person",500);
 
 // EmonBooks.showBooks();
 
@@ -670,12 +669,75 @@
 // user1.showBalance();
 // user1.showAccountType();
 
+// // ## Inheritence
 
+// class Dress {
+//   constructor(
+//     public name: string,
+//     public size: string,
+//     private price: number,
+//     protected colour: string,
+//   ) {
+//     this.name = name;
+//     this.size = size;
+//     this.price = price;
+//     this.colour = colour;
+//   }
 
+//   showYourDress() {
+//     console.log(
+//       `Hi,Users.Your Dress is name ${this.name}.Your Dress Size is ${this.size}.${this.name} price is ${this.price}.Dress Colour is ${this.colour}`,
+//     );
+//   }
+// }
 
-// ## Inheritence
+// class Uniform extends Dress {
+//   constructor(
+//     public dressname: string,
+//     private clgCode: number,
+//     name: string,
+//     size: string,
+//     price: number,
+//     colour: string,
+//   ) {
+//     super(name, size, price, colour);
+//     this.dressname = dressname;
+//     this.clgCode = clgCode;
+//   }
 
+//   showYourClgDress() {
+//     console.log(
+//       `Hi,Users.Your Dress is ${this.dressname}.Your ClgCode is ${this.clgCode}.`,
+//     );
+//   }
+// }
+
+// const emon = new Dress("Punjabi", "M", 2000, "Red");
+// const dressEmon = new Uniform("Shirt", 1075, "T-Shirt", "M", 500, "Black");
+
+// emon.showYourDress();
+// dressEmon.showYourClgDress();
+// dressEmon.showYourDress();
 
 // ## Implements Keyword
-// ## Project: Vehicle Management System
 
+// interface Driveable {
+//     start: () => void;
+//     stop: () => void;
+// }
+
+// class DriveCar implements Driveable {
+//     start() {
+//         console.log("Drive Car");
+//     }
+//     stop(){
+//         console.log("Drive car Stop");
+//     }
+// }
+
+// const emon = new DriveCar();
+
+// emon.start();
+// emon.stop();
+
+// ## Project: Vehicle Management System

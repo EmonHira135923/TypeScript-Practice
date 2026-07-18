@@ -542,33 +542,140 @@
 
 // Custom Type Gurads
 
-type User = {
-    name: string;
-    role: "user";
-};
+// type User = {
+//     name: string;
+//     role: "user";
+// };
 
-type Admin = {
-    name: string;
-    role: "admin";
-    permissions: string[];
-};
+// type Admin = {
+//     name: string;
+//     role: "admin";
+//     permissions: string[];
+// };
 
-// 1. Define the Custom Type Guards
-const isAdmin = (profile: User | Admin): profile is Admin => {
-    return profile.role === "admin" && "permissions" in profile;
-};
+// // 1. Define the Custom Type Guards
+// const isAdmin = (profile: User | Admin): profile is Admin => {
+//     return profile.role === "admin" && "permissions" in profile;
+// };
 
-const isUser = (profile: User | Admin): profile is User => {
-    return profile.role === "user";
-};
+// const isUser = (profile: User | Admin): profile is User => {
+//     return profile.role === "user";
+// };
 
-// 2. Use them in your application logic
-const handleLogin = (profile: User | Admin) => {
-    if (isAdmin(profile)) {
-        // TypeScript now completely trusts that 'profile' is an Admin
-        console.log(`Welcome Admin! You have ${profile.permissions.length} permissions.`);
-    } else if (isUser(profile)) {
-        // TypeScript safely narrows 'profile' to a regular User here
-        console.log(`Welcome User ${profile.name}!`);
-    }
-};
+// // 2. Use them in your application logic
+// const handleLogin = (profile: User | Admin) => {
+//     if (isAdmin(profile)) {
+//         // TypeScript now completely trusts that 'profile' is an Admin
+//         console.log(`Welcome Admin! You have ${profile.permissions.length} permissions.`);
+//     } else if (isUser(profile)) {
+//         // TypeScript safely narrows 'profile' to a regular User here
+//         console.log(`Welcome User ${profile.name}!`);
+//     }
+// };
+
+// ### OOP
+// ## Define Class
+
+// class Person {
+//     name:string;
+//     age:number;
+//     isYoung:boolean;
+
+//     constructor(name:string,age:number,isYoung:boolean){
+//         this.name=name;
+//         this.age=age;
+//         this.isYoung= isYoung;
+//     }
+
+//     showUser(){
+//         console.log(`Hello! User Name is ${this.name}`);
+//     }
+
+// }
+
+// const user = new Person("Emon",23,true);
+
+// user.showUser();
+
+// class Product {
+//     name:string;
+//     price:number;
+//     sizes:string[];
+
+//     constructor(name:string,price:number,sizes:string[]){
+//         this.name = name;
+//         this.price = price;
+//         this.sizes = sizes;
+//     }
+
+//     showProductData(){
+//         console.log(`Hi, User, This is ${this.name}.It's Price ${this.price}.It's has some sizes ${this.sizes}.`);
+//     }
+
+// };
+
+
+// const firstuserProduct = new Product("Punjabi",5000,["M","L","XL","XXL"]);
+
+// firstuserProduct.showProductData();
+
+// // ## Constructor and Modifier
+
+// class Books{
+//     name:string;
+//     authorName:string;
+//     price:number;
+
+//     constructor(name:string,authorName:string,price:number){
+//         this.name=name;
+//         this.authorName=authorName;
+//         this.price=price;
+//     }
+
+//     showBooks(){
+//         console.log(`My Book Name is ${this.name}.${this.name} author name is ${this.authorName}.${this.name} and price is ${this.price}.`)
+//     }
+
+// }
+
+// const EmonBooks = new Books("Vector-Calculas","Unknown-Person",500); 
+
+// EmonBooks.showBooks();
+
+// // Access Modifier
+// class BankAccount {
+//     public accountName:string;
+//     private accountBalance:number;
+//     protected accountType:string;
+
+//     constructor(accountName:string,accountBalance:number){
+//         this.accountName = accountName;
+//         this.accountBalance = accountBalance;
+//         this.accountType = "savings"
+//     }
+
+//     showBalance(){
+//         console.log(`${this.accountBalance}.`)
+//     }
+
+//     showAccountType(){
+//         console.log(`${this.accountType}`)
+//     }
+
+// }
+
+// const user1 = new BankAccount("Emon Hossain Hira",70000);
+
+// console.log(`Account Name ${user1.accountName}`);
+// user1.showBalance();
+// user1.showAccountType();
+
+
+
+
+// ## Inheritence
+
+
+// ## Implements Keyword
+// ## Project: Vehicle Management System
+

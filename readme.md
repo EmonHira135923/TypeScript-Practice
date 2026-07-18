@@ -927,9 +927,9 @@ Welcome to **Module 06** of learning TypeScript! This module covers **Union & In
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **Union Types (`|`):** Allows a variable to hold one of several types (e.g., `string | number`).
-* **Intersection Types (`&`):** Combines multiple types into one, requiring the variable to satisfy all combined types.
-* **Literal Types:** Restricts a variable to hold only specific values (e.g., `"YES" | "NO"`).
+- **Union Types (`|`):** Allows a variable to hold one of several types (e.g., `string | number`).
+- **Intersection Types (`&`):** Combines multiple types into one, requiring the variable to satisfy all combined types.
+- **Literal Types:** Restricts a variable to hold only specific values (e.g., `"YES" | "NO"`).
 
 ### 💻 Code Example:
 
@@ -951,7 +951,6 @@ const user3Status: Status = "YES";
 const showData = (user: User3, status: Status): void => {
   console.log(`User: ${user.name}, Roll: ${user.rollNo}, Status: ${status}`);
 };
-
 ```
 
 ---
@@ -976,7 +975,6 @@ const showData = (Data: Product): void => {
     console.log(Data.data.trim()); // Safe to use string methods
   }
 };
-
 ```
 
 #### 2. Using `in` Operator
@@ -994,7 +992,6 @@ const showVehicle = (vehicle: Car | Cycle): void => {
     console.log("No, It's a Cycle");
   }
 };
-
 ```
 
 #### 3. Using `instanceof`
@@ -1002,8 +999,16 @@ const showVehicle = (vehicle: Car | Cycle): void => {
 কোনো অবজেক্ট নির্দিষ্ট কোনো ক্লাসের কি না, তা যাচাই করতে `instanceof` ব্যবহার করা হয়।
 
 ```typescript
-class House { hello() { console.log("Welcome to House"); } }
-class NoHouse { hello() { console.log("No House here"); } }
+class House {
+  hello() {
+    console.log("Welcome to House");
+  }
+}
+class NoHouse {
+  hello() {
+    console.log("No House here");
+  }
+}
 
 const showHouse = (sound: House | NoHouse) => {
   if (sound instanceof House) {
@@ -1012,7 +1017,6 @@ const showHouse = (sound: House | NoHouse) => {
     sound.hello();
   }
 };
-
 ```
 
 ---
@@ -1021,8 +1025,8 @@ const showHouse = (sound: House | NoHouse) => {
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** Custom type guards are functions that return a type predicate (e.g., `profile is Admin`). They are useful when you have complex logic that `typeof` or `instanceof` cannot handle directly.
-* **বাংলা:** যখন জটিল লজিকের কারণে সাধারণ টাইপ চেক করা কঠিন হয়, তখন আমরা কাস্টম ফাংশন তৈরি করি যা টাইপ চেক করে নিশ্চিত করে (যেমন: `profile is Admin`)। একেই কাস্টম টাইপ গার্ড বলে।
+- **English:** Custom type guards are functions that return a type predicate (e.g., `profile is Admin`). They are useful when you have complex logic that `typeof` or `instanceof` cannot handle directly.
+- **বাংলা:** যখন জটিল লজিকের কারণে সাধারণ টাইপ চেক করা কঠিন হয়, তখন আমরা কাস্টম ফাংশন তৈরি করি যা টাইপ চেক করে নিশ্চিত করে (যেমন: `profile is Admin`)। একেই কাস্টম টাইপ গার্ড বলে।
 
 ### 💻 Code Example:
 
@@ -1044,8 +1048,117 @@ const handleLogin = (profile: User | Admin) => {
     console.log(`Welcome User ${profile.name}!`);
   }
 };
-
 ```
+
+# TypeScript Mastery: Module 07
+
+### OOP
+
+## Define Class
+## Constructor and Modifier
+
+## define
+
+`
+class Person {
+name:string;
+age:number;
+isYoung:boolean;
+
+    constructor(name:string,age:number,isYoung:boolean){
+        this.name=name;
+        this.age=age;
+        this.isYoung= isYoung;
+    }
+
+    showUser(){
+        console.log(`Hello! User Name is ${this.name}`);
+    }
+
+}
+
+const user = new Person("Emon",23,true);
+
+user.showUser();
+
+class Product {
+name:string;
+price:number;
+sizes:string[];
+
+    constructor(name:string,price:number,sizes:string[]){
+        this.name = name;
+        this.price = price;
+        this.sizes = sizes;
+    }
+
+    showProductData(){
+        console.log(`Hi, User, This is ${this.name}.It's Price ${this.price}.It's has some sizes ${this.sizes}.`);
+    }
+
+};
+
+const firstuserProduct = new Product("Punjabi",5000,["M","L","XL","XXL"]);
+
+firstuserProduct.showProductData();
+
+// ## Constructor and Modifier
+
+class Books{
+name:string;
+authorName:string;
+price:number;
+
+    constructor(name:string,authorName:string,price:number){
+        this.name=name;
+        this.authorName=authorName;
+        this.price=price;
+    }
+
+    showBooks(){
+        console.log(`My Book Name is ${this.name}.${this.name} author name is ${this.authorName}.${this.name} and price is ${this.price}.`)
+    }
+
+}
+
+const EmonBooks = new Books("Vector-Calculas","Unknown-Person",500);
+
+EmonBooks.showBooks();
+
+// Access Modifier
+class BankAccount {
+public accountName:string;
+private accountBalance:number;
+protected accountType:string;
+
+    constructor(accountName:string,accountBalance:number){
+        this.accountName = accountName;
+        this.accountBalance = accountBalance;
+        this.accountType = "savings"
+    }
+
+    showBalance(){
+        console.log(`${this.accountBalance}.`)
+    }
+
+    showAccountType(){
+        console.log(`${this.accountType}`)
+    }
+
+}
+
+const user1 = new BankAccount("Emon Hossain Hira",70000);
+
+console.log(`Account Name ${user1.accountName}`);
+user1.showBalance();
+user1.showAccountType();
+`
+
+## Inheritence
+
+## Implements Keyword
+
+## Project: Vehicle Management System
 
 ---
 

@@ -740,4 +740,291 @@
 // emon.start();
 // emon.stop();
 
-// ## Project: Vehicle Management System
+// ## Project: School Management System
+
+// ======================
+// Interfaces
+// ======================
+
+// interface User {
+//   username: string;
+//   email: string;
+//   phone: string;
+//   age: number;
+// }
+
+// interface StudentInfo {
+//   className: string;
+//   classRoll: number;
+//   gpa: number;
+// }
+
+// interface TeacherInfo {
+//   employeeId: number;
+//   subject: string;
+// }
+
+// interface CourseInfo {
+//   courseCode: number;
+//   courseName: string;
+// }
+
+// interface SchoolInfo {
+//   schoolName: string;
+//   schoolCode: number;
+// }
+
+// // ======================
+// // User Class (Parent)
+// // ======================
+
+// class UserClass implements User {
+//   constructor(
+//     public username: string,
+//     public email: string,
+//     public phone: string,
+//     public age: number,
+//   ) {}
+
+//   showUserInfo() {
+//     console.log(`
+// Name : ${this.username}
+// Email : ${this.email}
+// Phone : ${this.phone}
+// Age : ${this.age}
+// `);
+//   }
+// }
+
+// // ======================
+// // Student
+// // ======================
+
+// class StudentClass extends UserClass implements StudentInfo {
+//   public courses: CourseClass[] = [];
+
+//   constructor(
+//     username: string,
+//     email: string,
+//     phone: string,
+//     age: number,
+//     public className: string,
+//     public classRoll: number,
+//     public gpa: number,
+//   ) {
+//     super(username, email, phone, age);
+//   }
+
+//   enrollCourse(course: CourseClass) {
+//     this.courses.push(course);
+//     course.addStudent(this);
+//   }
+
+//   calculateGPA(marks: number[]) {
+//     const total = marks.reduce((sum, mark) => sum + mark, 0);
+//     this.gpa = Number((total / marks.length).toFixed(2));
+//   }
+
+//   showStudentInfo() {
+//     console.log("========== Student ==========");
+//     this.showUserInfo();
+
+//     console.log("Class :", this.className);
+//     console.log("Roll :", this.classRoll);
+//     console.log("GPA :", this.gpa);
+
+//     console.log("Courses :", this.courses.map((c) => c.courseName).join(", "));
+//   }
+// }
+
+// // ======================
+// // Teacher
+// // ======================
+
+// class TeacherClass extends UserClass implements TeacherInfo {
+//   public courses: CourseClass[] = [];
+
+//   constructor(
+//     username: string,
+//     email: string,
+//     phone: string,
+//     age: number,
+//     public employeeId: number,
+//     public subject: string,
+//   ) {
+//     super(username, email, phone, age);
+//   }
+
+//   assignCourse(course: CourseClass) {
+//     this.courses.push(course);
+//   }
+
+//   showTeacherInfo() {
+//     console.log("========== Teacher ==========");
+//     this.showUserInfo();
+
+//     console.log("Employee ID :", this.employeeId);
+//     console.log("Subject :", this.subject);
+
+//     console.log("Courses :", this.courses.map((c) => c.courseName).join(", "));
+//   }
+// }
+
+// // ======================
+// // Course
+// // ======================
+
+// class CourseClass implements CourseInfo {
+//   public students: StudentClass[] = [];
+
+//   constructor(
+//     public courseCode: number,
+//     public courseName: string,
+//     public teacher: TeacherClass,
+//   ) {
+//     teacher.assignCourse(this);
+//   }
+
+//   addStudent(student: StudentClass) {
+//     if (!this.students.includes(student)) {
+//       this.students.push(student);
+//     }
+//   }
+
+//   showCourseInfo() {
+//     console.log("========== Course ==========");
+//     console.log("Course :", this.courseName);
+//     console.log("Code :", this.courseCode);
+//     console.log("Teacher :", this.teacher.username);
+
+//     console.log("Students :", this.students.map((s) => s.username).join(", "));
+//   }
+// }
+
+// // ======================
+// // School
+// // ======================
+
+// class SchoolClass implements SchoolInfo {
+//   students: StudentClass[] = [];
+//   teachers: TeacherClass[] = [];
+//   courses: CourseClass[] = [];
+
+//   constructor(
+//     public schoolName: string,
+//     public schoolCode: number,
+//   ) {}
+
+//   addStudent(student: StudentClass) {
+//     this.students.push(student);
+//   }
+
+//   addTeacher(teacher: TeacherClass) {
+//     this.teachers.push(teacher);
+//   }
+
+//   addCourse(course: CourseClass) {
+//     this.courses.push(course);
+//   }
+
+//   showSchoolInfo() {
+//     console.log("\n========== School ==========");
+//     console.log("School :", this.schoolName);
+//     console.log("Code :", this.schoolCode);
+
+//     console.log("\nTeachers:");
+//     this.teachers.forEach((t) => console.log("-", t.username));
+
+//     console.log("\nStudents:");
+//     this.students.forEach((s) => console.log("-", s.username));
+
+//     console.log("\nCourses:");
+//     this.courses.forEach((c) => console.log("-", c.courseName));
+//   }
+// }
+
+// // ======================
+// // Create Teacher
+// // ======================
+
+// const teacher1 = new TeacherClass(
+//   "Mr. Rahim",
+//   "rahim@gmail.com",
+//   "01711111111",
+//   40,
+//   101,
+//   "Computer Science",
+// );
+
+// // ======================
+// // Create Students
+// // ======================
+
+// const student1 = new StudentClass(
+//   "Emon Hossain Hira",
+//   "emon@gmail.com",
+//   "01817516654",
+//   23,
+//   "BSc in CSE",
+//   41,
+//   0,
+// );
+
+// const student2 = new StudentClass(
+//   "Rakib Hasan",
+//   "rakib@gmail.com",
+//   "01800000000",
+//   22,
+//   "BSc in CSE",
+//   42,
+//   0,
+// );
+
+// // ======================
+// // Create Course
+// // ======================
+
+// const course1 = new CourseClass(2201, "Object Oriented Programming", teacher1);
+
+// // ======================
+// // Enroll Students
+// // ======================
+
+// student1.enrollCourse(course1);
+// student2.enrollCourse(course1);
+
+// // ======================
+// // Calculate GPA
+// // ======================
+
+// student1.calculateGPA([3.75, 3.5, 4.0, 3.8]);
+// student2.calculateGPA([3.2, 3.6, 3.4, 3.5]);
+
+// // ======================
+// // Create School
+// // ======================
+
+// const school = new SchoolClass("BUBT", 1001);
+
+// school.addTeacher(teacher1);
+// school.addStudent(student1);
+// school.addStudent(student2);
+// school.addCourse(course1);
+
+// // ======================
+// // Output
+// // ======================
+
+// student1.showStudentInfo();
+
+// console.log();
+
+// teacher1.showTeacherInfo();
+
+// console.log();
+
+// course1.showCourseInfo();
+
+// console.log();
+
+// school.showSchoolInfo();

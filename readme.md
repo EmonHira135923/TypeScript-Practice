@@ -1050,193 +1050,429 @@ const handleLogin = (profile: User | Admin) => {
 };
 ```
 
-# TypeScript Mastery: Module 07
+এখানে আপনার **Module 07**-এর জন্য একটি অত্যন্ত সুবিন্যস্ত, পরিষ্কার এবং প্রফেশনাল **README.md** ফাইল তৈরি করে দেওয়া হলো। অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং (OOP)-এর জটিল বিষয়গুলো যেমন—ক্লাস, কনস্ট্রাক্টর, অ্যাক্সেস মডিফায়ার, ইনহেরিট্যান্স এবং ইমপ্লিমেন্টেশনকে বাংলা ও ইংরেজি উভয় ভাষায় সহজ ডেফিনিশন এবং আপনার দেওয়া সম্পূর্ণ কোড স্ট্রাকচারসহ সাজানো হয়েছে:
 
-### OOP
+---
 
-## Define Class
+# 📘 TypeScript Mastery: Module 07
 
-## Constructor and Modifier
+Welcome to **Module 07** of learning TypeScript! This moudle focuses entirely on **Object-Oriented Programming (OOP)** in TypeScript. We will explore **Classes, Constructors, Access Modifiers, Inheritance, the `implements` keyword**, and wrap up with a fully operational **School Management System**.
 
-## define
+---
 
-`
+## 📌 7.1 Define Class & Constructors (ক্লাস এবং কনস্ট্রাক্টর)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **Class:** A blueprint or template for creating objects. It encapsulates data (properties) and behavior (methods) together.
+* **Constructor:** A special method inside a class that triggers automatically when a new instance (object) of that class is created. It initializes the object's properties.
+* **বাংলা:** ক্লাস হলো অবজেক্ট তৈরির একটি ব্লুপ্রিন্ট বা ছাঁচ। অন্যদিকে কনস্ট্রাক্টর হলো ক্লাসের ভেতরের একটি বিশেষ মেথড, যা নতুন অবজেক্ট তৈরির সাথে সাথে স্বয়ংক্রিয়ভাবে চালু হয় এবং অবজেক্টের প্রোপার্টিগুলোর শুরুর ভ্যালু সেট করে।
+
+### 💻 Code Example:
+
+```typescript
+// Defining a Basic Class with Constructor
 class Person {
-name:string;
-age:number;
-isYoung:boolean;
+  name: string;
+  age: number;
+  isYoung: boolean;
 
-    constructor(name:string,age:number,isYoung:boolean){
-        this.name=name;
-        this.age=age;
-        this.isYoung= isYoung;
-    }
+  constructor(name: string, age: number, isYoung: boolean) {
+    this.name = name;
+    this.age = age;
+    this.isYoung = isYoung;
+  }
 
-    showUser(){
-        console.log(`Hello! User Name is ${this.name}`);
-    }
-
+  showUser() {
+    console.log(`Hello! User Name is ${this.name}`);
+  }
 }
 
-const user = new Person("Emon",23,true);
-
+const user = new Person("Emon", 23, true);
 user.showUser();
 
+// Another Example: Product Class
 class Product {
-name:string;
-price:number;
-sizes:string[];
+  name: string;
+  price: number;
+  sizes: string[];
 
-    constructor(name:string,price:number,sizes:string[]){
-        this.name = name;
-        this.price = price;
-        this.sizes = sizes;
-    }
+  constructor(name: string, price: number, sizes: string[]) {
+    this.name = name;
+    this.price = price;
+    this.sizes = sizes;
+  }
 
-    showProductData(){
-        console.log(`Hi, User, This is ${this.name}.It's Price ${this.price}.It's has some sizes ${this.sizes}.`);
-    }
-
-};
-
-const firstuserProduct = new Product("Punjabi",5000,["M","L","XL","XXL"]);
-
-firstuserProduct.showProductData();
-
-// ## Constructor and Modifier
-
-class Books{
-name:string;
-authorName:string;
-price:number;
-
-    constructor(name:string,authorName:string,price:number){
-        this.name=name;
-        this.authorName=authorName;
-        this.price=price;
-    }
-
-    showBooks(){
-        console.log(`My Book Name is ${this.name}.${this.name} author name is ${this.authorName}.${this.name} and price is ${this.price}.`)
-    }
-
+  showProductData() {
+    console.log(`Hi User, This is ${this.name}. Price: ${this.price}. Available Sizes: ${this.sizes.join(", ")}.`);
+  }
 }
 
-const EmonBooks = new Books("Vector-Calculas","Unknown-Person",500);
+const firstProduct = new Product("Punjabi", 5000, ["M", "L", "XL", "XXL"]);
+firstProduct.showProductData();
 
-EmonBooks.showBooks();
+```
 
-// Access Modifier
+---
+
+## 📌 7.2 Access Modifiers (অ্যাক্সেস মডিফায়ার)
+
+### 📖 Definition / সংজ্ঞা:
+
+TypeScript provides three main access modifiers to control the visibility and security of class members:
+
+* **`public`:** Accessible from anywhere (default behavior).
+* **`private`:** Accessible **only** within the class it is defined. Outer codes or child classes cannot access it.
+* **`protected`:** Accessible within the class itself and its **subclasses (child classes)**, but not from the outside.
+* **বাংলা:** অ্যাক্সেস মডিফায়ার কোডের নিরাপত্তা ও ডেটা হাইড করতে সাহায্য করে। `public` প্রোপার্টি যেকোনো জায়গা থেকে অ্যাক্সেস করা যায়। `private` শুধু নিজস্ব ক্লাসের ভেতরেই কাজ করে এবং `protected` নিজস্ব ক্লাস ও তার থেকে তৈরি হওয়া চাইল্ড ক্লাসের ভেতর অ্যাক্সেস করা যায়।
+
+### 💻 Code Example:
+
+```typescript
 class BankAccount {
-public accountName:string;
-private accountBalance:number;
-protected accountType:string;
+  public accountName: string;
+  private accountBalance: number;
+  protected accountType: string;
 
-    constructor(accountName:string,accountBalance:number){
-        this.accountName = accountName;
-        this.accountBalance = accountBalance;
-        this.accountType = "savings"
-    }
+  constructor(accountName: string, accountBalance: number) {
+    this.accountName = accountName;
+    this.accountBalance = accountBalance;
+    this.accountType = "savings";
+  }
 
-    showBalance(){
-        console.log(`${this.accountBalance}.`)
-    }
+  showBalance() {
+    console.log(`Balance: ${this.accountBalance}`); // Private variable accessible inside the class
+  }
 
-    showAccountType(){
-        console.log(`${this.accountType}`)
-    }
-
+  showAccountType() {
+    console.log(`Account Type: ${this.accountType}`);
+  }
 }
 
-const user1 = new BankAccount("Emon Hossain Hira",70000);
+const myAccount = new BankAccount("Emon Hossain Hira", 70000);
+console.log(`Account Name: ${myAccount.accountName}`); // Allowed
+// myAccount.accountBalance; // ❌ Error: Property 'accountBalance' is private
+myAccount.showBalance();    // Allowed (via internal method)
 
-console.log(`Account Name ${user1.accountName}`);
-user1.showBalance();
-user1.showAccountType();
-`
+```
 
-## Inheritence
+---
 
-# define
+## 📌 7.3 Inheritance & `super()` (ইনহেরিট্যান্স)
 
-`
-// ## Inheritence
+### 📖 Definition / সংজ্ঞা:
 
+* **English:** Inheritance allows a child class to inherit properties and methods from a parent class using the `extends` keyword. The `super()` method is called inside the child's constructor to pass values back up to the parent constructor.
+* **বাংলা:** ইনহেরিট্যান্সের মাধ্যমে একটি চাইল্ড ক্লাস তার পেরেন্ট ক্লাসের সমস্ত বৈশিষ্ট্য `extends` কিওয়ার্ডের মাধ্যমে নিজের মধ্যে নিয়ে আসতে পারে। চাইল্ড ক্লাসের কনস্ট্রাক্টরের ভেতর `super()` কল করে পেরেন্ট ক্লাসের কনস্ট্রাক্টরের কাছে ডেটা পাঠানো বাধ্যতামূলক।
+
+### 💻 Code Example:
+
+```typescript
 class Dress {
-constructor(
-public name: string,
-public size: string,
-private price: number,
-protected colour: string,
-) {
-this.name = name;
-this.size = size;
-this.price = price;
-this.colour = colour;
+  // Using Parameter Properties shorthand (declaring and initializing at once)
+  constructor(
+    public name: string,
+    public size: string,
+    private price: number,
+    protected colour: string,
+  ) {}
+
+  showYourDress() {
+    console.log(`Dress: ${this.name} | Size: ${this.size} | Price: ${this.price} | Colour: ${this.colour}`);
+  }
 }
 
-showYourDress() {
-console.log(
-`Hi,Users.Your Dress is name ${this.name}.Your Dress Size is ${this.size}.${this.name} price is ${this.price}.Dress Colour is ${this.colour}`,
-);
-}
-}
-
+// Subclass inheriting from Dress
 class Uniform extends Dress {
-constructor(
-public dressname: string,
-private clgCode: number,
-name: string,
-size: string,
-price: number,
-colour: string,
-) {
-super(name, size, price, colour);
-this.dressname = dressname;
-this.clgCode = clgCode;
+  constructor(
+    public dressname: string,
+    private clgCode: number,
+    name: string,
+    size: string,
+    price: number,
+    colour: string,
+  ) {
+    super(name, size, price, colour); // Calling parent constructor
+    this.dressname = dressname;
+    this.clgCode = clgCode;
+  }
+
+  showYourClgDress() {
+    console.log(`Uniform Name: ${this.dressname} | College Code: ${this.clgCode}`);
+  }
 }
 
-showYourClgDress() {
-console.log(
-`Hi,Users.Your Dress is ${this.dressname}.Your ClgCode is ${this.clgCode}.`,
-);
-}
-}
-
-const emon = new Dress("Punjabi", "M", 2000, "Red");
 const dressEmon = new Uniform("Shirt", 1075, "T-Shirt", "M", 500, "Black");
-
-emon.showYourDress();
 dressEmon.showYourClgDress();
-dressEmon.showYourDress();
-`
+dressEmon.showYourDress(); // Accessing inherited method from Parent class
 
-## Implements Keyword
+```
 
-# define
+---
 
-`
+## 📌 7.4 The `implements` Keyword (ইন্টারফেস ইমপ্লিমেন্ট করা)
+
+### 📖 Definition / সংজ্ঞা:
+
+* **English:** The `implements` keyword forces a class to strictly follow a specific structure defined by an interface. The class must implement all properties and methods declared in that interface.
+* **বাংলা:** `implements` কিওয়ার্ডের কাজ হলো কোনো ক্লাসকে নির্দিষ্ট ইন্টারফেসের দেওয়া নিয়ম ও স্ট্রাকচার মেনে চলতে বাধ্য করা। ইন্টারফেসে যে যে মেথড বা প্রোপার্টি থাকবে, ক্লাসের ভেতরে সেগুলো অবশ্যই তৈরি করতে হবে।
+
+### 💻 Code Example:
+
+```typescript
 interface Driveable {
-start: () => void;
-stop: () => void;
+  start: () => void;
+  stop: () => void;
 }
 
+// Class must follow the Driveable blueprint
 class DriveCar implements Driveable {
-start() {
-console.log("Drive Car");
-}
-stop(){
-console.log("Drive car Stop");
-}
+  start() {
+    console.log("Drive Car started...");
+  }
+  stop() {
+    console.log("Drive Car stopped.");
+  }
 }
 
-const emon = new DriveCar();
+const myCar = new DriveCar();
+myCar.start();
+myCar.stop();
 
-emon.start();
-emon.stop();
-`
+```
 
-## Project: Vehicle Management System
+---
+
+## 🚀 Project 5: School Management System
+
+ইন্টারফেস, ইনহেরিট্যান্স, ক্লাসের সমন্বয় এবং রিয়েল-লাইফ লজিক (যেমন: Array Manipulation ও জিপিএ ক্যালকুলেশন) ব্যবহার করে তৈরি একটি অ্যাডভান্সড স্কুল ম্যানেজমেন্ট সিস্টেম।
+
+### 💻 Full Implementation:
+
+```typescript
+// ======================
+// 1. Interfaces
+// ======================
+interface User {
+  username: string;
+  email: string;
+  phone: string;
+  age: number;
+}
+
+interface StudentInfo {
+  className: string;
+  classRoll: number;
+  gpa: number;
+}
+
+interface TeacherInfo {
+  employeeId: number;
+  subject: string;
+}
+
+interface CourseInfo {
+  courseCode: number;
+  courseName: string;
+}
+
+interface SchoolInfo {
+  schoolName: string;
+  schoolCode: number;
+}
+
+// ======================
+// 2. Base User Class (Parent)
+// ======================
+class UserClass implements User {
+  constructor(
+    public username: string,
+    public email: string,
+    public phone: string,
+    public age: number,
+  ) {}
+
+  showUserInfo() {
+    console.log(`Name  : ${this.username}\nEmail : ${this.email}\nPhone : ${this.phone}\nAge   : ${this.age}`);
+  }
+}
+
+// ======================
+// 3. Student Class
+// ======================
+class StudentClass extends UserClass implements StudentInfo {
+  public courses: CourseClass[] = [];
+
+  constructor(
+    username: string,
+    email: string,
+    phone: string,
+    age: number,
+    public className: string,
+    public classRoll: number,
+    public gpa: number,
+  ) {
+    super(username, email, phone, age);
+  }
+
+  enrollCourse(course: CourseClass) {
+    this.courses.push(course);
+    course.addStudent(this);
+  }
+
+  calculateGPA(marks: number[]) {
+    const total = marks.reduce((sum, mark) => sum + mark, 0);
+    this.gpa = Number((total / marks.length).toFixed(2));
+  }
+
+  showStudentInfo() {
+    console.log("========== Student Info ==========");
+    this.showUserInfo();
+    console.log("Class :", this.className);
+    console.log("Roll  :", this.classRoll);
+    console.log("GPA   :", this.gpa);
+    console.log("Courses:", this.courses.map((c) => c.courseName).join(", "));
+  }
+}
+
+// ======================
+// 4. Teacher Class
+// ======================
+class TeacherClass extends UserClass implements TeacherInfo {
+  public courses: CourseClass[] = [];
+
+  constructor(
+    username: string,
+    email: string,
+    phone: string,
+    age: number,
+    public employeeId: number,
+    public subject: string,
+  ) {
+    super(username, email, phone, age);
+  }
+
+  assignCourse(course: CourseClass) {
+    this.courses.push(course);
+  }
+
+  showTeacherInfo() {
+    console.log("========== Teacher Info ==========");
+    this.showUserInfo();
+    console.log("Emp ID:", this.employeeId);
+    console.log("Subject:", this.subject);
+    console.log("Assigned Courses:", this.courses.map((c) => c.courseName).join(", "));
+  }
+}
+
+// ======================
+// 5. Course Class
+// ======================
+class CourseClass implements CourseInfo {
+  public students: StudentClass[] = [];
+
+  constructor(
+    public courseCode: number,
+    public courseName: string,
+    public teacher: TeacherClass,
+  ) {
+    teacher.assignCourse(this);
+  }
+
+  addStudent(student: StudentClass) {
+    if (!this.students.includes(student)) {
+      this.students.push(student);
+    }
+  }
+
+  showCourseInfo() {
+    console.log("========== Course Info ==========");
+    console.log("Course :", this.courseName);
+    console.log("Code   :", this.courseCode);
+    console.log("Teacher:", this.teacher.username);
+    console.log("Enrolled Students:", this.students.map((s) => s.username).join(", "));
+  }
+}
+
+// ======================
+// 6. School Class
+// ======================
+class SchoolClass implements SchoolInfo {
+  students: StudentClass[] = [];
+  teachers: TeacherClass[] = [];
+  courses: CourseClass[] = [];
+
+  constructor(
+    public schoolName: string,
+    public schoolCode: number,
+  ) {}
+
+  addStudent(student: StudentClass) {
+    this.students.push(student);
+  }
+
+  addTeacher(teacher: TeacherClass) {
+    this.teachers.push(teacher);
+  }
+
+  addCourse(course: CourseClass) {
+    this.courses.push(course);
+  }
+
+  showSchoolInfo() {
+    console.log("\n========== School Ecosystem ==========");
+    console.log("School Name:", this.schoolName);
+    console.log("School Code:", this.schoolCode);
+    
+    console.log("\nFaculties:");
+    this.teachers.forEach((t) => console.log(`- ${t.username} (${t.subject})`));
+
+    console.log("\nRegistered Students:");
+    this.students.forEach((s) => console.log(`- ${s.username} (Roll: ${s.classRoll})`));
+
+    console.log("\nActive Courses:");
+    this.courses.forEach((c) => console.log(`- ${c.courseName} [Code: ${c.courseCode}]`));
+  }
+}
+
+// ======================
+// 7. Execution Pipeline
+// ======================
+
+// Initialize Faculty
+const teacher1 = new TeacherClass("Mr. Rahim", "rahim@gmail.com", "01711111111", 40, 101, "Computer Science");
+
+// Initialize Students
+const student1 = new StudentClass("Emon Hossain Hira", "emon@gmail.com", "01817516654", 23, "BSc in CSE", 41, 0);
+const student2 = new StudentClass("Rakib Hasan", "rakib@gmail.com", "01800000000", 22, "BSc in CSE", 42, 0);
+
+// Set Up Course
+const course1 = new CourseClass(2201, "Object Oriented Programming", teacher1);
+
+// Operations
+student1.enrollCourse(course1);
+student2.enrollCourse(course1);
+
+student1.calculateGPA([3.75, 3.5, 4.0, 3.8]);
+student2.calculateGPA([3.2, 3.6, 3.4, 3.5]);
+
+// Instantiating School Context (BUBT)
+const school = new SchoolClass("BUBT", 1001);
+school.addTeacher(teacher1);
+school.addStudent(student1);
+school.addStudent(student2);
+school.addCourse(course1);
+
+// Printing Outputs
+student1.showStudentInfo();
+console.log();
+teacher1.showTeacherInfo();
+console.log();
+course1.showCourseInfo();
+console.log();
+school.showSchoolInfo();
+
+```
 
 ---
 

@@ -1033,42 +1033,55 @@
 
 // # Generic Functions and Interfaces
 
-const logData = <T>(data: T) => {
-  console.log("Data is Here: ", data);
-};
+// const logData = <T>(data: T) => {
+//   console.log("Data is Here: ", data);
+// };
 
-logData<string>("Emon Hossain Hira");
-logData<number>(23);
-logData<boolean>(true);
+// logData<string>("Emon Hossain Hira");
+// logData<number>(23);
+// logData<boolean>(true);
 
-// Interfaces
+// // Interfaces
 
-interface APIRESPONSE<T> {
-  success: boolean;
-  data: T;
-}
+// interface APIRESPONSE<T> {
+//   success: boolean;
+//   data: T;
+// }
 
-const userResponse: APIRESPONSE<{ name: string }> = {
-  success: false,
-  data: {
-    name: "Emon Hossain Hira",
-  },
-};
+// const userResponse: APIRESPONSE<{ name: string }> = {
+//   success: false,
+//   data: {
+//     name: "Emon Hossain Hira",
+//   },
+// };
 
-const productResponse: APIRESPONSE<{ name: string,price: number }> = {
-  success: false,
-  data: {
-    name: "Emon Hossain Hira",
-    price:350
-  },
-};
+// const productResponse: APIRESPONSE<{ name: string,price: number }> = {
+//   success: false,
+//   data: {
+//     name: "Emon Hossain Hira",
+//     price:350
+//   },
+// };
 
 
-const result = userResponse;
-const result2 = productResponse;
-console.log(result.data);
-console.log(result2.data.price);
+// const result = userResponse;
+// const result2 = productResponse;
+// console.log(result.data);
+// console.log(result2.data.price);
 
 // # Constraints
+
+const checkData = <T>(data: T) :void => {
+    console.log("Here your data",data);
+}
+
+const stringValue = checkData<string>("Emon Hossain Hira");
+const datavalue = checkData<number>(189123);
+const arrayValue = checkData<string[]>(["Emon","Hossain","Hira"]);
+const numberValue = checkData<number[]>([14,15,16,17,18,19,20]);
+
+console.log(stringValue,datavalue,arrayValue,numberValue);
+
+
 // # Real World Use Case
 // # Project : Generic API Response Handler

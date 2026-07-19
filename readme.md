@@ -1062,9 +1062,9 @@ Welcome to **Module 07** of learning TypeScript! This moudle focuses entirely on
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **Class:** A blueprint or template for creating objects. It encapsulates data (properties) and behavior (methods) together.
-* **Constructor:** A special method inside a class that triggers automatically when a new instance (object) of that class is created. It initializes the object's properties.
-* **বাংলা:** ক্লাস হলো অবজেক্ট তৈরির একটি ব্লুপ্রিন্ট বা ছাঁচ। অন্যদিকে কনস্ট্রাক্টর হলো ক্লাসের ভেতরের একটি বিশেষ মেথড, যা নতুন অবজেক্ট তৈরির সাথে সাথে স্বয়ংক্রিয়ভাবে চালু হয় এবং অবজেক্টের প্রোপার্টিগুলোর শুরুর ভ্যালু সেট করে।
+- **Class:** A blueprint or template for creating objects. It encapsulates data (properties) and behavior (methods) together.
+- **Constructor:** A special method inside a class that triggers automatically when a new instance (object) of that class is created. It initializes the object's properties.
+- **বাংলা:** ক্লাস হলো অবজেক্ট তৈরির একটি ব্লুপ্রিন্ট বা ছাঁচ। অন্যদিকে কনস্ট্রাক্টর হলো ক্লাসের ভেতরের একটি বিশেষ মেথড, যা নতুন অবজেক্ট তৈরির সাথে সাথে স্বয়ংক্রিয়ভাবে চালু হয় এবং অবজেক্টের প্রোপার্টিগুলোর শুরুর ভ্যালু সেট করে।
 
 ### 💻 Code Example:
 
@@ -1102,13 +1102,14 @@ class Product {
   }
 
   showProductData() {
-    console.log(`Hi User, This is ${this.name}. Price: ${this.price}. Available Sizes: ${this.sizes.join(", ")}.`);
+    console.log(
+      `Hi User, This is ${this.name}. Price: ${this.price}. Available Sizes: ${this.sizes.join(", ")}.`,
+    );
   }
 }
 
 const firstProduct = new Product("Punjabi", 5000, ["M", "L", "XL", "XXL"]);
 firstProduct.showProductData();
-
 ```
 
 ---
@@ -1119,10 +1120,10 @@ firstProduct.showProductData();
 
 TypeScript provides three main access modifiers to control the visibility and security of class members:
 
-* **`public`:** Accessible from anywhere (default behavior).
-* **`private`:** Accessible **only** within the class it is defined. Outer codes or child classes cannot access it.
-* **`protected`:** Accessible within the class itself and its **subclasses (child classes)**, but not from the outside.
-* **বাংলা:** অ্যাক্সেস মডিফায়ার কোডের নিরাপত্তা ও ডেটা হাইড করতে সাহায্য করে। `public` প্রোপার্টি যেকোনো জায়গা থেকে অ্যাক্সেস করা যায়। `private` শুধু নিজস্ব ক্লাসের ভেতরেই কাজ করে এবং `protected` নিজস্ব ক্লাস ও তার থেকে তৈরি হওয়া চাইল্ড ক্লাসের ভেতর অ্যাক্সেস করা যায়।
+- **`public`:** Accessible from anywhere (default behavior).
+- **`private`:** Accessible **only** within the class it is defined. Outer codes or child classes cannot access it.
+- **`protected`:** Accessible within the class itself and its **subclasses (child classes)**, but not from the outside.
+- **বাংলা:** অ্যাক্সেস মডিফায়ার কোডের নিরাপত্তা ও ডেটা হাইড করতে সাহায্য করে। `public` প্রোপার্টি যেকোনো জায়গা থেকে অ্যাক্সেস করা যায়। `private` শুধু নিজস্ব ক্লাসের ভেতরেই কাজ করে এবং `protected` নিজস্ব ক্লাস ও তার থেকে তৈরি হওয়া চাইল্ড ক্লাসের ভেতর অ্যাক্সেস করা যায়।
 
 ### 💻 Code Example:
 
@@ -1150,8 +1151,7 @@ class BankAccount {
 const myAccount = new BankAccount("Emon Hossain Hira", 70000);
 console.log(`Account Name: ${myAccount.accountName}`); // Allowed
 // myAccount.accountBalance; // ❌ Error: Property 'accountBalance' is private
-myAccount.showBalance();    // Allowed (via internal method)
-
+myAccount.showBalance(); // Allowed (via internal method)
 ```
 
 ---
@@ -1160,8 +1160,8 @@ myAccount.showBalance();    // Allowed (via internal method)
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** Inheritance allows a child class to inherit properties and methods from a parent class using the `extends` keyword. The `super()` method is called inside the child's constructor to pass values back up to the parent constructor.
-* **বাংলা:** ইনহেরিট্যান্সের মাধ্যমে একটি চাইল্ড ক্লাস তার পেরেন্ট ক্লাসের সমস্ত বৈশিষ্ট্য `extends` কিওয়ার্ডের মাধ্যমে নিজের মধ্যে নিয়ে আসতে পারে। চাইল্ড ক্লাসের কনস্ট্রাক্টরের ভেতর `super()` কল করে পেরেন্ট ক্লাসের কনস্ট্রাক্টরের কাছে ডেটা পাঠানো বাধ্যতামূলক।
+- **English:** Inheritance allows a child class to inherit properties and methods from a parent class using the `extends` keyword. The `super()` method is called inside the child's constructor to pass values back up to the parent constructor.
+- **বাংলা:** ইনহেরিট্যান্সের মাধ্যমে একটি চাইল্ড ক্লাস তার পেরেন্ট ক্লাসের সমস্ত বৈশিষ্ট্য `extends` কিওয়ার্ডের মাধ্যমে নিজের মধ্যে নিয়ে আসতে পারে। চাইল্ড ক্লাসের কনস্ট্রাক্টরের ভেতর `super()` কল করে পেরেন্ট ক্লাসের কনস্ট্রাক্টরের কাছে ডেটা পাঠানো বাধ্যতামূলক।
 
 ### 💻 Code Example:
 
@@ -1176,7 +1176,9 @@ class Dress {
   ) {}
 
   showYourDress() {
-    console.log(`Dress: ${this.name} | Size: ${this.size} | Price: ${this.price} | Colour: ${this.colour}`);
+    console.log(
+      `Dress: ${this.name} | Size: ${this.size} | Price: ${this.price} | Colour: ${this.colour}`,
+    );
   }
 }
 
@@ -1196,14 +1198,15 @@ class Uniform extends Dress {
   }
 
   showYourClgDress() {
-    console.log(`Uniform Name: ${this.dressname} | College Code: ${this.clgCode}`);
+    console.log(
+      `Uniform Name: ${this.dressname} | College Code: ${this.clgCode}`,
+    );
   }
 }
 
 const dressEmon = new Uniform("Shirt", 1075, "T-Shirt", "M", 500, "Black");
 dressEmon.showYourClgDress();
 dressEmon.showYourDress(); // Accessing inherited method from Parent class
-
 ```
 
 ---
@@ -1212,8 +1215,8 @@ dressEmon.showYourDress(); // Accessing inherited method from Parent class
 
 ### 📖 Definition / সংজ্ঞা:
 
-* **English:** The `implements` keyword forces a class to strictly follow a specific structure defined by an interface. The class must implement all properties and methods declared in that interface.
-* **বাংলা:** `implements` কিওয়ার্ডের কাজ হলো কোনো ক্লাসকে নির্দিষ্ট ইন্টারফেসের দেওয়া নিয়ম ও স্ট্রাকচার মেনে চলতে বাধ্য করা। ইন্টারফেসে যে যে মেথড বা প্রোপার্টি থাকবে, ক্লাসের ভেতরে সেগুলো অবশ্যই তৈরি করতে হবে।
+- **English:** The `implements` keyword forces a class to strictly follow a specific structure defined by an interface. The class must implement all properties and methods declared in that interface.
+- **বাংলা:** `implements` কিওয়ার্ডের কাজ হলো কোনো ক্লাসকে নির্দিষ্ট ইন্টারফেসের দেওয়া নিয়ম ও স্ট্রাকচার মেনে চলতে বাধ্য করা। ইন্টারফেসে যে যে মেথড বা প্রোপার্টি থাকবে, ক্লাসের ভেতরে সেগুলো অবশ্যই তৈরি করতে হবে।
 
 ### 💻 Code Example:
 
@@ -1236,7 +1239,6 @@ class DriveCar implements Driveable {
 const myCar = new DriveCar();
 myCar.start();
 myCar.stop();
-
 ```
 
 ---
@@ -1291,7 +1293,9 @@ class UserClass implements User {
   ) {}
 
   showUserInfo() {
-    console.log(`Name  : ${this.username}\nEmail : ${this.email}\nPhone : ${this.phone}\nAge   : ${this.age}`);
+    console.log(
+      `Name  : ${this.username}\nEmail : ${this.email}\nPhone : ${this.phone}\nAge   : ${this.age}`,
+    );
   }
 }
 
@@ -1359,7 +1363,10 @@ class TeacherClass extends UserClass implements TeacherInfo {
     this.showUserInfo();
     console.log("Emp ID:", this.employeeId);
     console.log("Subject:", this.subject);
-    console.log("Assigned Courses:", this.courses.map((c) => c.courseName).join(", "));
+    console.log(
+      "Assigned Courses:",
+      this.courses.map((c) => c.courseName).join(", "),
+    );
   }
 }
 
@@ -1388,7 +1395,10 @@ class CourseClass implements CourseInfo {
     console.log("Course :", this.courseName);
     console.log("Code   :", this.courseCode);
     console.log("Teacher:", this.teacher.username);
-    console.log("Enrolled Students:", this.students.map((s) => s.username).join(", "));
+    console.log(
+      "Enrolled Students:",
+      this.students.map((s) => s.username).join(", "),
+    );
   }
 }
 
@@ -1421,15 +1431,19 @@ class SchoolClass implements SchoolInfo {
     console.log("\n========== School Ecosystem ==========");
     console.log("School Name:", this.schoolName);
     console.log("School Code:", this.schoolCode);
-    
+
     console.log("\nFaculties:");
     this.teachers.forEach((t) => console.log(`- ${t.username} (${t.subject})`));
 
     console.log("\nRegistered Students:");
-    this.students.forEach((s) => console.log(`- ${s.username} (Roll: ${s.classRoll})`));
+    this.students.forEach((s) =>
+      console.log(`- ${s.username} (Roll: ${s.classRoll})`),
+    );
 
     console.log("\nActive Courses:");
-    this.courses.forEach((c) => console.log(`- ${c.courseName} [Code: ${c.courseCode}]`));
+    this.courses.forEach((c) =>
+      console.log(`- ${c.courseName} [Code: ${c.courseCode}]`),
+    );
   }
 }
 
@@ -1438,11 +1452,34 @@ class SchoolClass implements SchoolInfo {
 // ======================
 
 // Initialize Faculty
-const teacher1 = new TeacherClass("Mr. Rahim", "rahim@gmail.com", "01711111111", 40, 101, "Computer Science");
+const teacher1 = new TeacherClass(
+  "Mr. Rahim",
+  "rahim@gmail.com",
+  "01711111111",
+  40,
+  101,
+  "Computer Science",
+);
 
 // Initialize Students
-const student1 = new StudentClass("Emon Hossain Hira", "emon@gmail.com", "01817516654", 23, "BSc in CSE", 41, 0);
-const student2 = new StudentClass("Rakib Hasan", "rakib@gmail.com", "01800000000", 22, "BSc in CSE", 42, 0);
+const student1 = new StudentClass(
+  "Emon Hossain Hira",
+  "emon@gmail.com",
+  "01817516654",
+  23,
+  "BSc in CSE",
+  41,
+  0,
+);
+const student2 = new StudentClass(
+  "Rakib Hasan",
+  "rakib@gmail.com",
+  "01800000000",
+  22,
+  "BSc in CSE",
+  42,
+  0,
+);
 
 // Set Up Course
 const course1 = new CourseClass(2201, "Object Oriented Programming", teacher1);
@@ -1469,14 +1506,55 @@ console.log();
 course1.showCourseInfo();
 console.log();
 school.showSchoolInfo();
-
 ```
 
 # TypeScript Mastery Module : 08
 
 # Generic Functions and Interfaces
+
+# define
+
+`
+const logData = <T>(data: T) => {
+console.log("Data is Here: ", data);
+};
+
+logData<string>("Emon Hossain Hira");
+logData<number>(23);
+logData<boolean>(true);
+
+// Interfaces
+
+interface APIRESPONSE<T> {
+success: boolean;
+data: T;
+}
+
+const userResponse: APIRESPONSE<{ name: string }> = {
+success: false,
+data: {
+name: "Emon Hossain Hira",
+},
+};
+
+const productResponse: APIRESPONSE<{ name: string,price: number }> = {
+success: false,
+data: {
+name: "Emon Hossain Hira",
+price:350
+},
+};
+
+const result = userResponse;
+const result2 = productResponse;
+console.log(result.data);
+console.log(result2.data.price);
+`
+
 # Constraints
+
 # Real World Use Case
+
 # Project : Generic API Response Handler
 
 ---

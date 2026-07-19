@@ -1472,6 +1472,13 @@ school.showSchoolInfo();
 
 ```
 
+# TypeScript Mastery Module : 08
+
+# Generic Functions and Interfaces
+# Constraints
+# Real World Use Case
+# Project : Generic API Response Handler
+
 ---
 
 ⚡ _Happy Coding with TypeScript! / শুভ টাইপস্ক্রিপ্ট কোডিং!_

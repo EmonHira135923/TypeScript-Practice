@@ -1028,3 +1028,47 @@
 // console.log();
 
 // school.showSchoolInfo();
+
+// # TypeScript Mastery Module : 08
+
+// # Generic Functions and Interfaces
+
+const logData = <T>(data: T) => {
+  console.log("Data is Here: ", data);
+};
+
+logData<string>("Emon Hossain Hira");
+logData<number>(23);
+logData<boolean>(true);
+
+// Interfaces
+
+interface APIRESPONSE<T> {
+  success: boolean;
+  data: T;
+}
+
+const userResponse: APIRESPONSE<{ name: string }> = {
+  success: false,
+  data: {
+    name: "Emon Hossain Hira",
+  },
+};
+
+const productResponse: APIRESPONSE<{ name: string,price: number }> = {
+  success: false,
+  data: {
+    name: "Emon Hossain Hira",
+    price:350
+  },
+};
+
+
+const result = userResponse;
+const result2 = productResponse;
+console.log(result.data);
+console.log(result2.data.price);
+
+// # Constraints
+// # Real World Use Case
+// # Project : Generic API Response Handler

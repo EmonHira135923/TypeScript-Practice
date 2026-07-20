@@ -1063,7 +1063,6 @@
 //   },
 // };
 
-
 // const result = userResponse;
 // const result2 = productResponse;
 // console.log(result.data);
@@ -1071,17 +1070,32 @@
 
 // # Constraints
 
-const checkData = <T>(data: T) :void => {
-    console.log("Here your data",data);
+// const checkData = <T>(data: T) :void => {
+//     console.log("Here your data",data);
+// }
+
+// const stringValue = checkData<string>("Emon Hossain Hira");
+// const datavalue = checkData<number>(189123);
+// const arrayValue = checkData<string[]>(["Emon","Hossain","Hira"]);
+// const numberValue = checkData<number[]>([14,15,16,17,18,19,20]);
+
+// console.log(stringValue,datavalue,arrayValue,numberValue);
+
+interface Customer<T> {
+  success: boolean;
+  data: T;
 }
 
-const stringValue = checkData<string>("Emon Hossain Hira");
-const datavalue = checkData<number>(189123);
-const arrayValue = checkData<string[]>(["Emon","Hossain","Hira"]);
-const numberValue = checkData<number[]>([14,15,16,17,18,19,20]);
+const CustomerResponse:Customer<{name:string,id:number}> = {
+    success:true,
+    data:{
+        name:"Emon Hossain Hira",
+        id:25458123
+    }
+}
 
-console.log(stringValue,datavalue,arrayValue,numberValue);
-
+const data = CustomerResponse;
+console.log("Data: ",data.data.name);
 
 // # Real World Use Case
 // # Project : Generic API Response Handler

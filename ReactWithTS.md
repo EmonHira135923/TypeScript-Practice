@@ -18,5 +18,9 @@
 13. npm create vite@latest
 14. Clear App.css and index.css
 15. install npm install tailwindcss @tailwindcss/vite
-16 setup in app.css ---> @import "tailwindcss";
+16. setup in app.css ---> @import "tailwindcss";
 17. vite config.ts file aa import tailwindcss from '@tailwindcss/vite' and tailwindcss() call kore dew aa 
+18. Now Project Run 
+
+<!-- Practice Concept Using Ts -->
+19. 

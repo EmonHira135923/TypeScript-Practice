@@ -1,6 +1,7 @@
 import "./App.css";
 import UserProfile from "./componets/UserProfile";
 import Counting from "./componets/Counting";
+import MainUser from "./componets/MainUser";
 
 function App() {
   const userName = "Emon Hossain Hira";
@@ -42,6 +43,8 @@ function App() {
       />
 
       <Counting />
+
+      <MainUser/>
 
     </div>
   );

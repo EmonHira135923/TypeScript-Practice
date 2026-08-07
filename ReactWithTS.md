@@ -23,4 +23,5 @@
 18. Now Project Run 
 
 <!-- Practice Concept Using Ts -->
-19. 
+19. Typing React Component Props and using interface and type practice.
+20. 

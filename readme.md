@@ -6,7 +6,7 @@
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Status](https://img.shields.io/badge/Modules-10%2F10-brightgreen?style=for-the-badge)
+![Status](https://img.shields.io/badge/Modules-11%2F11-brightgreen?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 **একটি সম্পূর্ণ ইংরেজি-বাংলা টাইপস্ক্রিপ্ট লার্নিং রিসোর্স — বেসিক থেকে OOP ও জেনেরিক্স পর্যন্ত**
@@ -29,6 +29,7 @@
 | 08 | [Generics](#-module-08--generics) | Generic Functions, Interfaces, Constraints |
 | 09 | [Enums](#-module-09--enums) | Numeric, String & Const Enums |
 | 10 | [Modules & Namespaces](#-module-10--modules--namespaces) | Export/Import, Resolution, Collisions |
+| 11 | [Working With DOM and TypeScript](#-module-11--working-with-dom-and-typescript) | Type-Safe DOM Manipulation, Event Handling |
 
 > 💡 **Tip:** Every module has a short **project** at the end that puts the concepts into practice. Click the code blocks to expand — they're collapsed by default to keep this page skimmable.
 
@@ -881,6 +882,168 @@ const customer2: CustomerService.User = { id: 102, customerName: "VIP Customer" 
 
 ---
 
+## 📦 Module 11 — Working With DOM and TypeScript
+
+> A hands-on module covering **type-safe DOM manipulation** and **event handling** using TypeScript, styled with Tailwind CSS.
+
+### 🧭 Overview
+
+This module walks through building a **form validation app** using vanilla TypeScript and the DOM API — no frameworks, just strong typing, clean event handling, and Tailwind-powered styling.
+
+### 📚 Topics Covered
+
+| # | Topic |
+|---|-------|
+| 11.1 | Type-Safe DOM Manipulation |
+| 11.2 | Event Handling with Correct Types |
+
+### 🛠 Tech Stack
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+
+### 🚀 Project Setup
+
+<details>
+<summary>⚙️ <b>Initialize project & install TypeScript</b></summary>
+
+```bash
+npm init -y
+npm install typescript --save-dev
+npm install -g typescript
+tsc --init
+```
+
+**`tsconfig.json`:**
+```json
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  }
+}
+```
+
+**`package.json`:**
+```json
+{
+  "type": "module"
+}
+```
+
+</details>
+
+### 📁 Project Structure
+
+```
+📦 module-11-typescript-dom
+├── 📂 src
+│   └── index.ts
+├── 📂 dist
+│   └── index.js
+├── 📄 index.html
+├── 🎨 style.css
+├── 📄 tsconfig.json
+├── 📄 package.json
+├── 🚫 .gitignore
+└── 📘 README.md
+```
+
+> ✅ `node_modules` and `dist` (optional) should be added to `.gitignore`.
+
+Compile your TypeScript source files with `tsc` — this reads files from `./src` and outputs compiled JavaScript into `./dist`, as configured in `tsconfig.json`.
+
+<details>
+<summary>🎨 <b>Tailwind CSS Setup</b></summary>
+
+```bash
+npm install tailwindcss @tailwindcss/cli
+```
+
+```css
+/* style.css */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+```
+
+In `index.html`, link the compiled Tailwind CSS, Font Awesome (CDN), and Google Fonts, then link the compiled JS:
+
+```html
+<script type="module" src="./dist/index.js"></script>
+```
+
+</details>
+
+<details>
+<summary>💻 <b>Type-Safe Form Validation (DOM + Events)</b></summary>
+
+```typescript
+const form = document.querySelector<HTMLFormElement>("#userForm");
+const userinput = document.querySelector<HTMLInputElement>("#name");
+const emailinput = document.querySelector<HTMLInputElement>("#email");
+const numberinput = document.querySelector<HTMLInputElement>("#phone");
+const passwordinput = document.querySelector<HTMLInputElement>("#password");
+const submitbutton = document.querySelector<HTMLButtonElement>("#submit");
+const message = document.querySelector<HTMLParagraphElement>("#message");
+
+form?.addEventListener("submit", (e: Event) => {
+  e.preventDefault();
+
+  const userValue = userinput?.value.trim();
+  const userEmail = emailinput?.value.trim();
+  const userNumber = numberinput?.value.trim();
+  const userPassword = passwordinput?.value.trim();
+
+  if (!userValue || !userEmail || !userNumber || !userPassword) {
+    if (message) {
+      message.textContent = "Please Fill All Fields";
+    }
+    return;
+  }
+
+  if (message) {
+    message.className = "mt-4 text-center text-green-600 font-medium";
+    message.textContent = `User Name: ${userValue}, Email: ${userEmail}, Phone: ${userNumber}, Password: ${userPassword}`;
+  }
+
+  form.reset();
+});
+```
+
+**Key concepts demonstrated:**
+- 🔒 **Generic typing** with `querySelector<T>()` for accurate element types
+- 🧩 **Optional chaining (`?.`)** to safely handle possibly-null elements
+- 🎯 **Typed event parameters** (`Event`) for `addEventListener`
+- ✅ **Form validation** with early return on missing fields
+- 🎨 **Dynamic class + content updates** on success
+
+</details>
+
+<details>
+<summary>▶️ <b>How to Run</b></summary>
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Compile TypeScript
+tsc
+
+# 3. Open index.html in your browser
+```
+
+> 💡 Tip: Use the **Live Server** VS Code extension for auto-reloading during development.
+
+</details>
+
+---
+
 ## 📊 Quick Reference — Module Summary
 
 | Module | Core Skill Learned |
@@ -895,6 +1058,7 @@ const customer2: CustomerService.User = { id: 102, customerName: "VIP Customer" 
 | 08 | Generic functions, generic interfaces, constraints |
 | 09 | Numeric, string, and const enums |
 | 10 | Export/import, module resolution, naming collisions |
+| 11 | Type-safe DOM manipulation, typed event handling |
 
 ---
 

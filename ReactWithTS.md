@@ -158,6 +158,7 @@ function App() {
 
 export default App;
 ```
+---
 21. UseState and UseEffect using Type
 22. ```
 import React, { useEffect, useState } from "react";

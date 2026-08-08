@@ -332,3 +332,23 @@ export default FormSubmission;
 ---
 
 ⚡ *Happy Coding with React & TypeScript! / শুভ টাইপস্ক্রিপ্ট ও রিঅ্যাক্ট কোডিং!*
+
+
+# Module 12 : TypeScript With Backend
+
+5. Typing Refs
+
+<!-- New Start  -->
+
+1. UseRef and Ref Using Practice
+2.  
+
+
+
+6. Context API with Type
+
+7. Props Dilling to Children Component
+
+8. Custom Hooks
+
+9. APIs and Fetch Responses

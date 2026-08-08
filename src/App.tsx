@@ -4,6 +4,7 @@ import Counting from "./componets/Counting";
 import MainUser from "./componets/MainUser";
 import Events from "./componets/Events";
 import FormSubmission from "./componets/FormSubmission";
+import CounterByRef from "./componets/CounterByRef";
 
 function App() {
   const userName = "Emon Hossain Hira";
@@ -29,7 +30,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8 font-sans">
-      
       {/* Header Section */}
       <header className="max-w-7xl mx-auto text-center mb-10">
         <span className="bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full border border-indigo-500/20">
@@ -39,13 +39,13 @@ function App() {
           Student Dashboard
         </h1>
         <p className="text-slate-400 text-sm sm:text-base mt-2 max-w-xl mx-auto">
-          Explore interactive components, state management, event handlers, and form handling in one place.
+          Explore interactive components, state management, event handlers, and
+          form handling in one place.
         </p>
       </header>
 
       {/* Main Container */}
       <main className="max-w-7xl mx-auto space-y-8">
-        
         {/* Top Hero Section: Main Profile */}
         <section className="w-full">
           <UserProfile
@@ -62,7 +62,6 @@ function App() {
 
         {/* Grid Layout for Other Components */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 items-start">
-          
           <div className="space-y-6">
             <MainUser />
             <Counting />
@@ -73,15 +72,16 @@ function App() {
             <Events />
           </div>
 
+          <div className="space-y-6">
+            <CounterByRef />
+          </div>
         </section>
-
       </main>
 
       {/* Footer */}
       <footer className="text-center text-slate-500 text-xs mt-16 border-t border-slate-800 pt-6">
         Built with React, TypeScript & Tailwind CSS
       </footer>
-
     </div>
   );
 }
